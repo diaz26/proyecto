@@ -9,112 +9,14 @@
 
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
 
-
-
   <!-- Page Preloader -->
-
-  <div id="loading-page">
-    <div id="loading-center-page">
-      <div id="loading-center-absolute">
-
-        <div class="loader"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Page Preloader -->
-
-  <!-- Page Content -->
-
 
   <div class="warpper clearfix">
 
 
     <!-- Header -->
 
-    <header class="navbar-header">
-      <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#F17187">
 
-        <div class="container" style="background-color:#F17187">
-
-              <div class="row" style="">
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
-                  <a class="navbar-brand" href=""  style="padding-top: 35px"> <img src="<?= base_url(); ?>images/icon.png" alt=""> <span style="color:#FFF">BASEO</span></a>
-                </div>
-                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 col-6" style="padding-left: 0px;padding-right: 0px;">
-                  <div class="newsletter-block clearfix" style="width:100%">
-
-                    <div class="subscribe-form">
-
-                      <form action="#" method="get" class="subscribe-mail">
-                        <div class="form-group" >
-
-                          <input type="text" class="form-control email-input" placeholder="Search product" style="width:57%">
-                          <button type="submit" class="btn btn-subscribe"><i class="arrow_carrot-right_alt2"></i></button>
-
-                        </div>
-                        <p class="error-message"></p>
-                        <p class="sucess-message"></p>
-
-                      </form>
-                    </div>
-                  </div>
-
-                </div>
-
-              
-                <div class="col-lg-0 col-md-2 col-sm-2 col-xs-2 col-2">
-                  <button style="padding-top:20px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon  icon_menu" style="color:#FFF"></span>
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
-                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-
-                    <ul class="navbar-nav ml-auto" style="background-color:#F17187">
-                      <li class="nav-item active">
-                        <a data-scroll="" class="nav-link section-scroll" href="#home"><span style="color:#FFF">Home</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a data-scroll="" class="nav-link section-scroll" href="#about"><span style="color:#FFF">About</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a data-scroll="" class="nav-link section-scroll" href="#services-d"><span style="color:#FFF">Features</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a data-scroll="" class="nav-link section-scroll" href="#services"><span style="color:#FFF">Services</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a data-scroll="" class="nav-link section-scroll" href="#team"><span style="color:#FFF">Team</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a data-scroll="" class="nav-link section-scroll" href="#pricing"><span style="color:#FFF">Pricing</span></a>
-                      </li>
-                      <li>
-                        <a data-scroll="" href="#testimonials" class="nav-link section-scroll"><span style="color:#FFF">Testimonials</span></a>
-                      </li>
-                      <li>
-                        <a data-scroll="" href="blog.html" class="nav-link section-scroll"><span style="color:#FFF">Login</span></a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div>
-
-        </div>
-
-      </div>
-
-    </nav>
-
-  </header>
   <!--Header-->
 
   <!--Begin Hero Section-->
