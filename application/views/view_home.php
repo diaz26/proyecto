@@ -6,7 +6,6 @@
 <head>
 </head>
 
-
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
 
   <!-- Page Preloader -->
