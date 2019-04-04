@@ -8,8 +8,8 @@ class Model_login extends CI_Model {
 
 //  $this->load->model('Model_login');
   }
-  public function comprobar($usuario,$password,$rol){
-  $sql="SELECT COUNT(*) apodo FROM baseo_usuarios WHERE user='$usuario' AND pass='$password'  AND pass='$password'";
+  public function comprobar($usuario,$password){
+  $sql="SELECT COUNT(*) apodo FROM baseo_usuarios WHERE user='$usuario' AND pass='$password'";
   $query=$this->db->query($sql);
   //cuando es un solo registro
   return $query->row();
@@ -21,8 +21,8 @@ public function actualizar_clave($user,$newpass){
   $this->db->update('baseo_usuarios',array('pass'=>$newpass));
 }
 
-public function traer($usuario,$password,$rol){
-    $sql="SELECT * FROM baseo_usuarios WHERE user='$usuario' AND pass='$password' AND rol='$rol'";
+public function traer($usuario,$password){
+    $sql="SELECT * FROM baseo_usuarios WHERE user='$usuario' AND pass='$password'";
     $query=$this->db->query($sql);
     //cuando es un solo registro
     return $query->row();
