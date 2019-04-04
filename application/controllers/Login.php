@@ -8,6 +8,13 @@ class Login extends CI_Controller {
     $this->load->model('Model_login');
   }
 
+  public function index()
+	{
+
+		$this->load->view('view_Login');
+		//$this->load->view('footer');
+	}
+
   public function cambiar_clave(){
     $usuario=$this->input->post('usuario');
     $newpass=$this->input->post('newpassword');
