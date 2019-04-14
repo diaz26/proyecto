@@ -13,6 +13,6 @@ class Home extends CI_Controller {
 		$header['head']=$this->model_header->consultOficial(1);
 		$this->load->view('header',$header);
 		$this->load->view('view_home',$header);
-		//$this->load->view('footer');
+		$this->load->view('footer',$header);
 	}
 }

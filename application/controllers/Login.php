@@ -4,15 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
   function __construct(){
     parent::__construct();
-
+    $this->load->model('model_header');
     $this->load->model('Model_login');
   }
 
   public function index()
 	{
-
-		$this->load->view('view_Login');
-		//$this->load->view('footer');
+    $header['head']=$this->model_header->consultOficial(1);
+    $this->load->view('header',$header);
+		$this->load->view('view_Login',$header);
+		$this->load->view('footer',$header);
 	}
 
   public function cambiar_clave(){
