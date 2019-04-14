@@ -12,14 +12,15 @@ class Cliente extends CI_Controller {
   {
     if ($this->session->userdata('logged_in')) {
       if($this->session->userdata('ROL')=='Cliente'){
-        $this->load->view('views_cliente');
+        $this->load->view('header_loged');
+        $this->load->view('view_cliente');
+        $this->load->view('footer_loged');
       }else {
-        redirect("home");
+        $this->load->view('error_page');
       }
     }else {
-      redirect("home");
+      redirect("login");
     }
   }
-
 
 }

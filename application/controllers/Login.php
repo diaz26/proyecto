@@ -5,16 +5,16 @@ class Login extends CI_Controller {
   function __construct(){
     parent::__construct();
     $this->load->model('model_header');
-    $this->load->model('Model_login');
+    $this->load->model('model_login');
   }
 
   public function index()
-	{
+  {
     $header['head']=$this->model_header->consultOficial(1);
     $this->load->view('header',$header);
-		$this->load->view('view_Login',$header);
-		$this->load->view('footer',$header);
-	}
+    $this->load->view('view_Login',$header);
+    $this->load->view('footer',$header);
+  }
 
   public function cambiar_clave(){
     $usuario=$this->input->post('usuario');
@@ -31,45 +31,34 @@ class Login extends CI_Controller {
 
 
   public function validar(){
-    $usuario=$this->input->post('usuario');
-    $password=$this->input->post('password');
-    $result=$this->Model_login->comprobar($usuario,$password);
+    if (isset($_POST['user'])) {
+      $user=$this->input->post('user');
+      $pass=$this->input->post('pass');
+      $result=$this->model_login->comprobar($user,$pass);
 
-    echo $result->apodo;
-    if ($result->apodo==1) {
-      // code...
-      $datos_traidos=$this->Model_login->traer($usuario,$password);
-      $session=array(
-        'ID'=>$datos_traidos->id,
-        'USUARIOS'=>$datos_traidos->usuario,
-        'PASSWORD'=>$datos_traidos->password,
-        'ROL'=>$datos_traidos->rol,
-        'logged_in'=>true,);
-        if ($datos_traidos->rol=='Admin') {
-          if ($this->session->userdata('logged_in')) {
-            if($this->session->userdata('ROL')=='Admin'){
-              redirect("".base_url()."index.php/Admin");
-            }else {
-              redirect("home");
-            }
+      if ($result->apodo==1) {
+        $datos=$this->model_login->traer($user,$pass);
+        $session=array(
+          'ID'=>$datos->id,
+          'USUARIO'=>$datos->user,
+          'PASSWORD'=>$datos->pass,
+          'ROL'=>$datos->rol,
+          'logged_in'=>true
+        );
+        $this->session->set_userdata($session);
+          if($datos->rol=='Admin'){
+            redirect("".base_url()."index.php/Admin");
+          }else if ($datos->rol=='Cliente'){
+            redirect("".base_url()."index.php/cliente");
           }else {
-            redirect("home");
+            $this->load->view('error_page');
           }
-        }
-        if ($datos_traidos->rol=='Cliente') {
-          if ($this->session->userdata('logged_in')) {
-            if($this->session->userdata('ROL')=='Cliente'){
-              redirect("".base_url()."index.php/cliente");
-            }else {
-              redirect("home");
-            }
-          }else {
-            redirect("home");
-          }
-        }
-
-      }else{
-        echo "string";
+      }else {
+        $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Usuario/Contraseña Invalido</div>');
+  			redirect("".base_url()."index.php/login");
       }
+    }else {
+      $this->load->view('error_page');
     }
   }
+}

@@ -6,6 +6,9 @@
   <body>
     <footer class="footer" >
       <div class="footer-warpper">
+        <?php
+        if ($this->session->userdata('ROL')=='Cliente') {
+         ?>
         <section class="padd-40 bg-color-2" style="background-color: <?= $head->nav_bg; ?>">
           <div class="container">
             <div class="row">
@@ -29,6 +32,9 @@
             </div>
           </div>
         </section>
+        <?php
+      }
+         ?>
         <div class="footer-top">
           <div class="container">
             <div class="footer-bottom-content clearfix">
@@ -37,41 +43,51 @@
                   <div class="logo-footer">
                     <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$head->logo; ?>" alt=""><span><?= $head->abreviacion; ?></span></a>
                   </div>
-                  <ul class="list-social list-inline">
-                    <li>
-                      <a href="#">
-                        <i class="social_facebook "></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="social_twitter "></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="social_googleplus "></i>
-                      </a>
-                    </li>
-                  </ul>
                 </div>
                 <div class="col-lg-4 col-md-4">
                   <h5>Menu</h5>
                   <ul class="list-menu">
-                    <li>
-                      <a href="<?= base_url(); ?>"><?= $head->op1; ?> </a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/productos"><?= $head->op2; ?></a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/servicios"><?= $head->op3; ?></a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/login"><?= $head->op4; ?></a>
-                    </li>
+                    <?php
+                    if ($this->session->userdata('ROL')=='Cliente') {
+                      ?>
+                      <li>
+                        <a href="<?= base_url(); ?>index.php/productos">Perfil</a>
+                      </li>
+                      <li>
+                        <a href="<?= base_url(); ?>index.php/productos">Mis productos</a>
+                      </li>
+                      <li>
+                        <a href="<?= base_url(); ?>index.php/productos">Pedidos</a>
+                      </li>
+                      <li>
+                        <a href="<?= base_url(); ?>index.php/productos">Mi servicio</a>
+                      </li>
+                      <li>
+                        <a href="<?= base_url(); ?>index.php/productos">Mis ganancias</a>
+                      </li>
+                      <?php
+                    }
+                     if ($this->session->userdata('ROL')=='Admin') {
+                       ?>
+                       <li>
+                         <a href="<?= base_url(); ?>">BASEO oficial</a>
+                       </li>
+                       <li>
+                         <a href="<?= base_url(); ?>index.php/productos">clientes</a>
+                       </li>
+                       <li>
+                         <a href="<?= base_url(); ?>index.php/login">ganancias</a>
+                       </li>
+                       <?php
+                     }
+                      ?>
+
                   </ul>
                 </div>
+                <?php
+                if ($this->session->userdata('ROL')=='Cliente') {
+
+                  ?>
                 <div class="col-lg-4 col-md-4">
                   <h5>Contact Info</h5>
                   <ul class="list-menu contact-list">
@@ -83,6 +99,9 @@
                      </li>
                   </ul>
                 </div>
+                <?php
+              }
+                 ?>
               </div>
             </div>
           </div>

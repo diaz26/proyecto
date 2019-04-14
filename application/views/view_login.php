@@ -3,6 +3,7 @@
 <head>
 </head>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
+
   <section id="home" class="hero">
 
     <div class="slide-home">
@@ -20,13 +21,16 @@
                 <form action="<?= base_url(); ?>index.php/login/validar" method="post">
 
                   <div class="form-group">
-                    <center><input style="width:50%;text-align: center" type="text" name="user" class="form-control" placeholder="User"></center>
+                    <center><input style="width:50%;text-align: center" type="text" name="user" class="form-control" placeholder="User" required></center>
                   </div>
                   <div class="form-group">
-                    <center><input style="width:50%;text-align: center" type="password" name="pass" class="form-control" placeholder="Password"></center>
+                    <center><input style="width:50%;text-align: center" type="password" name="pass" class="form-control" placeholder="Password" required></center>
                   </div>
                   <div class="form-group">
                     <center><button type="submit" class="btn" style="background-color: <?= $head->nav_bg; ?>; color:<?= $head->color; ?>">Ingresar</button></center>
+                  </div>
+                  <div class="input-group">
+                    <?php echo $this->session->flashdata('msg'); ?>
                   </div>
                 </form>
 
