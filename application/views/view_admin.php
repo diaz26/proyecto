@@ -11,7 +11,7 @@
             <div class="col-md-10 col-12 col-sm-10 ml-auto mr-auto">
               <h3><b>Edit BASEO</b></h3>
               <hr>
-              <form action="<?= base_url() ?>index.php/admin/modNav" method="post">
+              <form action="<?= base_url() ?>index.php/admin/modNav" method="post" enctype="multipart/form-data">
                 <p style="color:black; font-size:18px"><b>Navbar</b> </p>
                 <div class="row">
                   <div class="col-md-5 pr-md-1" style="">

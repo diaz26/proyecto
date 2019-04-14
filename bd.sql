@@ -43,13 +43,14 @@ CREATE TABLE `baseo_oficial` (
   `ban_2_title` varchar(255) DEFAULT NULL,
   `ban_2_text` text,
   `ban_2_url_img` varchar(255) DEFAULT NULL,
+  `sec_text` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_oficial` */
 
-insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`) values 
-(1,'support@baseo.com',2147483647,'images/icon.png','BASEO - Buy and Sell Easy Online','BASEO','#A1E4CB','Home','Products','Services','Login','#000000','Lato, sans-serif',16,'Search product','Welcome to BASEO','BASEO is a platform that offers the sales service in which you can manage your products and sell online.','https://www.youtube.com/embed/7e90gBu4pas','assets/images/ventas.png','SEO','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam  explicabo.','assets/images/Banner-negocios.png');
+insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`,`sec_text`) values 
+(1,'support@baseo.com',2147483647,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#A1E4CB','Home','Products','Services','Login','#000000','Lato, sans-serif',16,'Search product','Welcome to BASEO','BASEO is a platform that offers the sales service in which you can manage your products and sell online.','https://www.youtube.com/embed/7e90gBu4pas','assets/images/ventas.png','SEO','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam  explicabo.','assets/images/Banner-negocios.png','¡BUSCA TU PRODUCTO!');
 
 /*Table structure for table `baseo_usuarios` */
 
@@ -72,12 +73,13 @@ CREATE TABLE `baseo_usuarios` (
   `img_perfil` varchar(255) DEFAULT NULL,
   `ultima_actividad` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_usuarios` */
 
 insert  into `baseo_usuarios`(`id`,`user`,`pass`,`rol`,`cod_user`,`nombres`,`apellidos`,`cc`,`direccion`,`email`,`ciudad`,`fecha_registro`,`facebook`,`img_perfil`,`ultima_actividad`) values 
-(1,'jeff26','123','Admin','JEFFD','Jeff','Díaz',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-03-27 17:14:21',NULL,NULL,NULL);
+(1,'jeff26','123','Admin','JEFFD','Jeff','Díaz',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-03-27 17:14:21',NULL,NULL,NULL),
+(2,'jeff','jda','Cliente','JJJJ','Jeffrey','Díaz',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-04-14 15:58:34',NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

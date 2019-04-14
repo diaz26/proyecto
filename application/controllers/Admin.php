@@ -28,8 +28,6 @@ class Admin extends CI_Controller {
   public function modNav(){
     if($this->session->userdata('logged_in')){
       if ($this->session->userdata('ROL')=='Admin') {
-        // code...
-
         $urldeimagen							="/images/";
         $config['upload_path'] 		= ".".$urldeimagen;
         $file_name 								= md5(time()."-".rand(1,999));
@@ -74,7 +72,7 @@ class Admin extends CI_Controller {
             'search'=>$this->input->post('search'),
           );
         }
-        $id=$this->input->post('search');
+        $id=$this->input->post('id');
         $this->model_admin->actNav($datos,$id);
         redirect("admin",'refresh');
       }else {
