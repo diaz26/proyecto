@@ -61,4 +61,13 @@ class Login extends CI_Controller {
       $this->load->view('error_page');
     }
   }
+
+  public function session_dest(){
+		$session = array(
+			'logged_in' => FALSE
+		);
+		$this->session->set_userdata($session);
+		$this->session->sess_destroy();
+		redirect("".base_url()."index.php/login");
+	}
 }

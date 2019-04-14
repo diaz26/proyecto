@@ -29,6 +29,8 @@
   <link rel="icon" href="<?= base_url().$head->logo; ?>" >
   <!--JS-->
   <script src="<?= base_url(); ?>assets/js/modernizr.js"></script>
+  <script type="text/javascript" language="javascript" src="<?= base_url() ?>assets/js/colorPicker.js"></script>
+  <link rel="stylesheet" href="<?= base_url() ?>assets/css/colorPicker.css" type="text/css"></link>
 </head>
 <body>
 
@@ -64,28 +66,26 @@
             <li class="nav-item">
               <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Mis ganancias</span></a>
             </li>
-            <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Salir</span></a>
-            </li>
             <?php
           }
            if ($this->session->userdata('ROL')=='Admin') {
              ?>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/servicios"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">BASEO oficial</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="#informacion"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">BASEO oficial</span></a>
             </li>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">clientes</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="#clientes"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">clientes</span></a>
             </li>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">ganancias</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="#ganancias"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">ganancias</span></a>
             </li>
-            <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Salir</span></a>
-            </li>
+
             <?php
           }
             ?>
+            <li class="nav-item">
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login/session_dest"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Salir</span></a>
+            </li>
           </ul>
 
         </div>

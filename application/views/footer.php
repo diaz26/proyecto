@@ -19,7 +19,7 @@
                   <div class="form-row">
                     <div class="form-group pd-rg-0 col-md-11 col-lg-11">
                       <div class="input-icon">
-                        <input type="email" class="form-control" placeholder="Search products">
+                        <input type="email" class="form-control" placeholder="<?= $head->search; ?>">
                         <button class="btn btn-blue-1" style="background-color: <?= $head->nav_bg; ?> ; color: <?= $head->color; ?>"><i class="arrow_carrot-right_alt2"></i></button>
                       </div>
                     </div>
@@ -76,10 +76,10 @@
                   <h5>Contact Info</h5>
                   <ul class="list-menu contact-list">
                     <li>
-                      <?= $head->correo_suport; ?>
+                      <?= $head->correo_contact; ?>
                     </li>
                     <li>
-                      <?= $head->telefono_contact; ?>
+                      <?= $head->cel_contact; ?>
                      </li>
                   </ul>
                 </div>

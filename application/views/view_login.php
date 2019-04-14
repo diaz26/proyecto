@@ -27,7 +27,7 @@
                     <center><input style="width:50%;text-align: center" type="password" name="pass" class="form-control" placeholder="Password" required></center>
                   </div>
                   <div class="form-group">
-                    <center><button type="submit" class="btn" style="background-color: <?= $head->nav_bg; ?>; color:<?= $head->color; ?>">Ingresar</button></center>
+                    <center><input type="submit" class="form-control" value="Ingresar" style="width:15%;background-color: <?= $head->nav_bg; ?>"></center>
                   </div>
                   <div class="input-group">
                     <?php echo $this->session->flashdata('msg'); ?>
