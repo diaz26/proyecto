@@ -19,7 +19,7 @@
                   <div class="form-row">
                     <div class="form-group pd-rg-0 col-md-11 col-lg-11">
                       <div class="input-icon">
-                        <input type="email" class="form-control" placeholder="<?= $head->search; ?>">
+                        <input type="text" class="form-control" placeholder="<?= $head->search; ?>">
                         <button class="btn btn-blue-1" style="background-color: <?= $head->nav_bg; ?> ; color: <?= $head->color; ?>"><i class="arrow_carrot-right_alt2"></i></button>
                       </div>
                     </div>
@@ -65,7 +65,7 @@
                       <a href="<?= base_url(); ?>index.php/productos"><?= $head->op2; ?></a>
                     </li>
                     <li>
-                      <a href="<?= base_url(); ?>index.php/servicios"><?= $head->op3; ?></a>
+                      <a href="<?= base_url(); ?>index.php/service"><?= $head->op3; ?></a>
                     </li>
                     <li>
                       <a href="<?= base_url(); ?>index.php/login"><?= $head->op4; ?></a>

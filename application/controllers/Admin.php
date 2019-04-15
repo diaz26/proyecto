@@ -7,16 +7,18 @@ class Admin extends CI_Controller {
     parent::__construct();
     $this->load->model('model_header');
     $this->load->model('model_admin');
+    $this->load->model('model_service');
   }
 
   public function index()
   {
     if ($this->session->userdata('logged_in')) {
       if($this->session->userdata('ROL')=='Admin'){
-        $header['head']=$this->model_header->consultOficial(1);
-        $this->load->view('header_loged',$header);
+        $result['head']=$this->model_header->consultOficial(1);
+        $result['service']=$this->model_service->consultService(1);
+        $this->load->view('header_loged',$result);
         $this->load->view('view_admin');
-        $this->load->view('footer_loged',$header);
+        $this->load->view('footer_loged');
       }else {
         $this->load->view('error_page');
       }
@@ -151,6 +153,81 @@ class Admin extends CI_Controller {
         }
         $id=$this->input->post('id');
         $this->model_admin->actNav($datos,$id);
+        redirect("admin",'refresh');
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
+  }
+
+  public function modFoot(){
+    if($this->session->userdata('logged_in')){
+      if ($this->session->userdata('ROL')=='Admin') {
+        $datos=array(
+          'sec_text'=>$this->input->post('sec_text'),
+          'search'=>$this->input->post('search')
+        );
+        $id=$this->input->post('id');
+        $this->model_admin->actNav($datos,$id);
+        redirect("admin",'refresh');
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
+  }
+
+  public function modPar(){
+    if($this->session->userdata('logged_in')){
+      if ($this->session->userdata('ROL')=='Admin') {
+        $datos=array(
+          'valor'=>$this->input->post('valor'),
+          'dias'=>$this->input->post('dias')
+        );
+        $id=$this->input->post('id');
+        $this->model_admin->actSer($datos,$id);
+        redirect("admin",'refresh');
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
+  }
+
+  public function modVisSer(){
+    if($this->session->userdata('logged_in')){
+      if ($this->session->userdata('ROL')=='Admin') {
+        $urldeimagen							="/images/";
+        $config['upload_path'] 		= ".".$urldeimagen;
+        $file_name 								= md5(time()."-".rand(1,999));
+        $config['allowed_types'] 	= "gif|jpg|jpeg|png";
+        $config['file_name']      = $file_name;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('tcarga')){
+          $dataCargada = $this->upload->data();
+          $datos=array(
+            'nombre'=>$this->input->post('nombre'),
+            'descripcion'=>$this->input->post('descripcion'),
+            'button'=>$this->input->post('button'),
+            'valor_text'=>$this->input->post('valor_text'),
+            'img'=> $urldeimagen.$dataCargada['file_name']
+          );
+        }else {
+          $datos=array(
+            'nombre'=>$this->input->post('nombre'),
+            'descripcion'=>$this->input->post('descripcion'),
+            'button'=>$this->input->post('button'),
+            'valor_text'=>$this->input->post('valor_text'),
+          );
+        }
+        $id=$this->input->post('id');
+        $this->model_admin->actSer($datos,$id);
         redirect("admin",'refresh');
       }else {
         $this->load->view('error_page');

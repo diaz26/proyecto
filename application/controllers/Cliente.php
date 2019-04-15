@@ -15,7 +15,7 @@ class Cliente extends CI_Controller {
         $header['head']=$this->model_header->consultOficial(1);
         $this->load->view('header_loged',$header);
         $this->load->view('view_cliente');
-        $this->load->view('footer_loged',$header);
+        $this->load->view('footer_loged');
       }else {
         $this->load->view('error_page');
       }
