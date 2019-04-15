@@ -50,7 +50,28 @@ CREATE TABLE `baseo_oficial` (
 /*Data for the table `baseo_oficial` */
 
 insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`,`sec_text`) values 
-(1,'support@baseo.com',2147483647,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#A1E4CB','Home','Products','Services','Login','#000000','Lato, sans-serif',16,'Search product','Welcome to BASEO','BASEO is a platform that offers the sales service in which you can manage your products and sell online.','https://www.youtube.com/embed/7e90gBu4pas','assets/images/ventas.png','SEO','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam  explicabo.','assets/images/Banner-negocios.png','¡BUSCA TU PRODUCTO!');
+(1,'support@baseo.com',2147483647,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#A1E4CB','Home','Products','Service','Login','#000000','Lato, sans-serif',16,'Search','Welcome to BASEO','BASEO is a platform that offers the sales service in which you can manage your products and sell online.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','SEO','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam  explicabo.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!');
+
+/*Table structure for table `baseo_service` */
+
+DROP TABLE IF EXISTS `baseo_service`;
+
+CREATE TABLE `baseo_service` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  `descripcion` text,
+  `valor` float(11,2) DEFAULT NULL,
+  `dias` int(11) DEFAULT NULL,
+  `img` varchar(150) DEFAULT NULL,
+  `button` varchar(30) DEFAULT NULL,
+  `valor_text` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `baseo_service` */
+
+insert  into `baseo_service`(`id`,`nombre`,`descripcion`,`valor`,`dias`,`img`,`button`,`valor_text`) values 
+(1,'Administra tus productos','Con este servicio podrás administrar tus productos y venderlos en linea evitando los costos que implica tener tu propia página web',50.00,60,'/images/1a5935f35e06c61a4db0e6515730c732.jpg','Adquirir','Valor ');
 
 /*Table structure for table `baseo_usuarios` */
 
