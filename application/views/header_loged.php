@@ -71,13 +71,16 @@
            if ($this->session->userdata('ROL')=='Admin') {
              ?>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="#informacion"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">BASEO oficial</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="#informacion"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">informacion</span></a>
+            </li>
+            <li class="nav-item">
+              <a data-scroll="" class="nav-link section-scroll" href="#servicio"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">servicio</span></a>
             </li>
             <li class="nav-item">
               <a data-scroll="" class="nav-link section-scroll" href="#clientes"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">clientes</span></a>
             </li>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="#ganancias"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">ganancias</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="#pagos"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">pagos</span></a>
             </li>
 
             <?php

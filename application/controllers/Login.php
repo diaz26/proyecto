@@ -12,7 +12,7 @@ class Login extends CI_Controller {
   {
     $header['head']=$this->model_header->consultOficial(1);
     $this->load->view('header',$header);
-    $this->load->view('view_Login',$header);
+    $this->load->view('view_Login');
     $this->load->view('footer',$header);
   }
 

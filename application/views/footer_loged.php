@@ -70,13 +70,16 @@
                      if ($this->session->userdata('ROL')=='Admin') {
                        ?>
                        <li>
-                         <a href="<?= base_url(); ?>">BASEO oficial</a>
+                         <a href="#informacion">informacion</a>
                        </li>
                        <li>
-                         <a href="<?= base_url(); ?>index.php/productos">clientes</a>
+                         <a href="#servicio">servicio</a>
                        </li>
                        <li>
-                         <a href="<?= base_url(); ?>index.php/login">ganancias</a>
+                         <a href="#clientes">clientes</a>
+                       </li>
+                       <li>
+                         <a href="#pagos">pagos</a>
                        </li>
                        <?php
                      }

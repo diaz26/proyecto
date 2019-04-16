@@ -62,7 +62,7 @@
             </li>
 
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/servicios"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op3; ?></span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/service"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op3; ?></span></a>
             </li>
 
             <li class="nav-item">
