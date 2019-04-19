@@ -14,9 +14,8 @@ class Cliente extends CI_Controller {
   {
     if ($this->session->userdata('logged_in')) {
       if($this->session->userdata('ROL')=='Cliente'){
-
         $header['head']=$this->model_header->consultOficial(1);
-        $header['productos']=$this->model_productos->traerproductos(2);
+        $header['productos']=$this->model_productos->Productos();
         $this->load->view('header_loged',$header);
         $this->load->view('view_cliente');
         $this->load->view('footer_loged');

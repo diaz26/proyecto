@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class model_productos extends CI_Model {
+class Model_productos extends CI_Model {
 
   function __construct(){
     parent::__construct();
   }
 
- public function traerproductos($id)
+ public function productos()
  {
-   $sql="SELECT * from baseo_productos where id_dueno='$id'";
+   $sql="SELECT * from baseo_productos";
    $query=$this->db->query($sql);
    return $query->result();
  }
@@ -25,6 +25,13 @@ class model_productos extends CI_Model {
    $this->db->update('baseo_productos',$datap);
   }
 
+  public function eliminar($id){
+    $this->db->where('id',$id);
+    $this->db->delete('baseo_productos');
+  }
 
+  public function agregar($agregados){
+    $this->db->insert('baseo_productos',$agregados);
+  }
 
 }

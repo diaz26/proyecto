@@ -28,7 +28,7 @@
                     ?>
                     <tr>
 
-                      <td class="text-center"><?php  echo $row->Nombre; ?> </td>
+                      <td class="text-center"><?php  echo $row->Nombre.$row->id; ?> </td>
                       <td class="text-center"> <button type="button" style="text-align: center;width:100%;background-color: <?= $head->nav_bg; ?>;color: black" class="form-control" data-toggle="modal" data-target="#producto<?= $row->id; ?>">Ver</button> </td>
                       <td class="text-center"><?php  echo $row->Precio;?> $</td>
                       <td class="text-center"><a href="<?= base_url()."index.php/productos/Editar/".$row->id;?>" style="text-align: center;width:100%;background-color: #0069d9;color: black " class="form-control" >modificar</a></td>

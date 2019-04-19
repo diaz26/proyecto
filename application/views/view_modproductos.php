@@ -16,20 +16,20 @@
                   <div class="col-md-4 pr-md-1">
                     <div class="form-group">
                       <label><b>Nombre</b></label><br>
-                      <input type="text" name="Nombre" value="<?php  echo $producto->Nombre; ?>">
+                      <input type="text" class="form-control" name="Nombre" value="<?php  echo $producto->Nombre; ?>">
                       <input type="hidden" name="id" value="<?php  echo $producto->id; ?>">
                     </div>
                   </div>
                   <div class="col-md-4 px-md-1">
                     <div class="form-group">
                       <label><b>Marca</b></label><br>
-                      <input type="text" name="Marca" value="<?php  echo $producto->Marca; ?>">
+                      <input type="text" class="form-control" name="Marca" value="<?php  echo $producto->Marca; ?>">
                     </div>
                   </div>
                   <div class="col-md-4 pl-md-1">
                     <div class="form-group">
                       <label><b>Precio</b></label><br>
-                      <input type="number" name="Precio" value="<?php  echo $producto->Precio; ?>">
+                      <input type="number" class="form-control" name="Precio" value="<?php  echo $producto->Precio; ?>">
                     </div>
                   </div>
                 </div>
