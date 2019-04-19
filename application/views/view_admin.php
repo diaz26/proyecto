@@ -8,7 +8,7 @@
       <div class="slide-item">
         <div class="container">
           <div class="row hero-padd">
-            <div class="col-md-10 col-12 col-sm-10 ml-auto mr-auto">
+            <div class="col-md-10 col-12 ml-auto mr-auto">
               <h3><b>Editar informacion</b></h3>
               <hr>
               <form action="<?= base_url() ?>index.php/admin/modNav" method="post" enctype="multipart/form-data">

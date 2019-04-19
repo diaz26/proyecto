@@ -14,38 +14,49 @@
 
           <div class="row hero-padd">
 
-            <div class="col-md-6 col-12 col-sm-6 ml-auto mr-auto">
+            <div class="col-md-10 col-12 ml-auto mr-auto">
 
               <div class="hero-text">
 
-                <h2>Mis productos </h2>
-                <h3>Bienvenido </h3>
-                <a href="<?= base_url()."index.php/Cliente/cargaagregar";?>"  class="btn btn-info">agregar productos </a>
-                <table class="table table-dark">
-                  <tr>
-                    <th>nombre  </th>
-                    <th>imagen </th>
-                    <th>precio </th>
-                    <th>Editar </th>
-                  </tr>
-                  <?php foreach ($productos as $row) {
-                    // code...
+                <center><h3 style="color: black">Mis productos</h3></center>
+                <a href="<?= base_url()."index.php/productos/agregar";?>" style="text-align: center;width:15%;background-color: <?= $head->nav_bg; ?>" class="form-control">Agregar</a>
+                <br>
+                <table class="table">
+                  <?php
+                  foreach ($productos as $row)
+                  {
+                    ?>
+                    <tr>
 
-                 ?>
-                  <tr>
+                      <td class="text-center"><?php  echo $row->Nombre; ?> </td>
+                      <td class="text-center"> <button type="button" style="text-align: center;width:100%;background-color: <?= $head->nav_bg; ?>;color: black" class="form-control" data-toggle="modal" data-target="#producto<?= $row->id; ?>">Ver</button> </td>
+                      <td class="text-center"><?php  echo $row->Precio;?> $</td>
+                      <td class="text-center"><a href="<?= base_url()."index.php/productos/Editar/".$row->id;?>" style="text-align: center;width:100%;background-color: #0069d9;color: black " class="form-control" >modificar</a></td>
+                      <td class="text-center"><a href="<?= base_url()."index.php/productos/Eliminar/".$row->id;?>"  style="text-align: center;width:100%;background-color: #c82333;color: black " class="form-control" >eliminar</a></td>
 
-                      <td><?php  echo $row->Nombre; ?> </td>
-                      <td><img src="<?= base_url().$row->Imagen;?>"> </td>
-                      <td><?php  echo $row->Precio;?> </td>
-                      <td><a href="<?= base_url()."index.php/Modificar_Productos/Editar/".$row->id;?>"  class="btn btn-info">modificar </a> </td>
-                        <td><a href="<?= base_url()."index.php/Cliente/Eliminar/".$row->id;?>"  class="btn btn-danger">eliminar </a> </td>
-                      <?php echo "<br>"?>
-                    <?php
+                      <div class="modal fade" id="producto<?= $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="z-index: 99999999;">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle"><?= $row->Nombre; ?></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="<?= base_url().$row->Imagen;?>">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                        }
-                     ?>
+                      <?php
 
-
+                    }
+                    ?>
                   </tr>
                 </table>
               </div>
@@ -61,16 +72,6 @@
     </div>
 
   </section>
-
-  <script src="<?= base_url(); ?>assets/js/jquery-2.1.1.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/jquery.easing.js"></script>
-  <script src="<?= base_url(); ?>assets/js/wow.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/magnific-popup.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/jquery.scrollUp.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/jquery.ajaxchimp.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/slick.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
 </body>
 <!-- Mirrored from design-graphma.com/demo/sedmy/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Mar 2019 04:47:26 GMT -->

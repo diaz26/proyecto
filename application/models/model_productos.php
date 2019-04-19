@@ -7,21 +7,19 @@ class model_productos extends CI_Model {
     parent::__construct();
   }
 
-
-
-
- public function traerproductos(){
-   $sql= "SELECT * from baseo_productos";
+ public function traerproductos($id)
+ {
+   $sql="SELECT * from baseo_productos where id_dueno='$id'";
    $query=$this->db->query($sql);
    return $query->result();
  }
- public function agarraid($id){
 
-   $sql= "SELECT * FROM baseo_productos WHERE id = '$id'";
+ public function producto($id){
+   $sql= "SELECT * from baseo_productos where id='$id'";
    $query=$this->db->query($sql);
-   return $query->result();
-
+   return $query->row();
  }
+
  public function modificar($id,$datap){
    $this->db->where('id',$id);
    $this->db->update('baseo_productos',$datap);
