@@ -20,6 +20,7 @@
 
                 <h2>Mis productos </h2>
                 <h3>Bienvenido </h3>
+                <a href="<?= base_url()."index.php/Cliente/cargaagregar";?>"  class="btn btn-info">agregar productos </a>
                 <table class="table table-dark">
                   <tr>
                     <th>nombre  </th>
@@ -37,7 +38,7 @@
                       <td><img src="<?= base_url().$row->Imagen;?>"> </td>
                       <td><?php  echo $row->Precio;?> </td>
                       <td><a href="<?= base_url()."index.php/Modificar_Productos/Editar/".$row->id;?>"  class="btn btn-info">modificar </a> </td>
-
+                        <td><a href="<?= base_url()."index.php/Cliente/Eliminar/".$row->id;?>"  class="btn btn-danger">eliminar </a> </td>
                       <?php echo "<br>"?>
                     <?php
 

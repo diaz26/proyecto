@@ -15,9 +15,9 @@ class Modificar_Productos extends CI_Controller {
       if($this->session->userdata('ROL')=='Cliente'){
         $header['head']=$this->model_header->consultOficial(1);
         $datap['productos']=$this->model_productos->traerproductos();
-        $this->load->view('header_loged',$header,$datap);
+        $this->load->view('header_loged',$header);
         $this->load->view('view_modproductos',$datap);
-        $this->load->view('footer_loged',$header,$datap);
+        $this->load->view('footer_loged',$header);
       }else {
         $this->load->view('error_page');
       }
