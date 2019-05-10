@@ -19,7 +19,7 @@
               <div class="hero-text">
 
                 <h2>Agregar productos </h2>
-                <form action="<?=base_url(); ?>index.php/Cliente/agregardeverdad/"  method="post"  enctype="multipart/form-data">
+                <form action="<?=base_url(); ?>index.php/productos/agregardeverdad/"  method="post"  enctype="multipart/form-data">
 
 
                <label>Nombre </label> <br>

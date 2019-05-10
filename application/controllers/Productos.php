@@ -27,11 +27,28 @@ class Productos extends CI_Controller {
     }
   }
   public function Editar($id){
-    $header['head']=$this->model_header->consultOficial(1);
-    $dataid['producto']=$this->model_productos->producto($id);
-    $this->load->view('header_loged',$header);
-    $this->load->view('view_modproductos',$dataid);
-    $this->load->view('footer_loged',$header);
+    if ($this->session->userdata('logged_in')) {
+
+      if($this->session->userdata('ROL')=='Cliente'){
+
+        $id_dueno=$this->session->userdata('ID');
+        $num=$this->model_productos->verifica_priedad($id);
+        if ($id_dueno==$num->id_dueno) {
+          $header['head']=$this->model_header->consultOficial(1);
+          $dataid['producto']=$this->model_productos->producto($id);
+          $this->load->view('header_loged',$header);
+          $this->load->view('view_modproductos',$dataid);
+          $this->load->view('footer_loged',$header);
+        }else {
+          $this->load->view('error_page');
+        }
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
+
   }
 
   public function modificar(){
@@ -109,20 +126,20 @@ class Productos extends CI_Controller {
             'Marca'=>$this->input->post('Marca'),
             'Descripcion'=>$this->input->post('Descripcion'),
             'Imagen'=>$urldeimagen.$dataCargada['file_name'],
-            'Precio'=>$this->input->post('Precio')
+            'Precio'=>$this->input->post('Precio'),
+            'id_dueno'=>$this->session->userdata('ID')
           );
-
-
         }else{
           $agregados = array(
             'Nombre'=>$this->input->post('Nombre'),
             'Marca'=>$this->input->post('Marca'),
             'Descripcion'=>$this->input->post('Descripcion'),
-            'Precio'=>$this->input->post('Precio')
+            'Precio'=>$this->input->post('Precio'),
+            'id_dueno'=>$this->session->userdata('ID')
           );
         }
 
-        $this->model_clientes->agregar($agregados);
+        $this->model_productos->agregar($agregados);
         redirect("Cliente",'refresh');
       }else {
         $this->load->view('error_page');
@@ -133,9 +150,22 @@ class Productos extends CI_Controller {
   }
 
   public function eliminar($id){
+    if ($this->session->userdata('logged_in')) {
 
-    $this->model_clientes->eliminar($id);
-    redirect("Cliente",'refresh');
+      if($this->session->userdata('ROL')=='Cliente'){
+
+        $id_dueno=$this->session->userdata('ID');
+        $num=$this->model_productos->verifica_priedad($id);
+        if ($id_dueno==$num->id_dueno) {
+          $this->model_productos->eliminar($id);
+        }
+        redirect("Cliente",'refresh');
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
   }
 
 
