@@ -9,13 +9,20 @@ class Model_productos extends CI_Model {
 
  public function productos()
  {
-   $sql="SELECT * from baseo_productos";
+   $id=$this->session->userdata('ID');
+   $sql="SELECT * from baseo_productos where id_dueno=$id";
    $query=$this->db->query($sql);
    return $query->result();
  }
 
  public function producto($id){
    $sql= "SELECT * from baseo_productos where id='$id'";
+   $query=$this->db->query($sql);
+   return $query->row();
+ }
+
+ public function verifica_priedad($id){
+   $sql= "SELECT id_dueno from baseo_productos where id='$id'";
    $query=$this->db->query($sql);
    return $query->row();
  }

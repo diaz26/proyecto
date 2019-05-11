@@ -19,8 +19,7 @@
             <div class="hero-text">
 
                 <h2>Agregar productos </h2>
-              <div class="col-md-10 col-12 ml-auto mr-auto">
-                <form action="<?=base_url(); ?>index.php/Cliente/agregardeverdad/"  method="post"  enctype="multipart/form-data">
+                <form action="<?=base_url(); ?>index.php/Productos/agregardeverdad/"  method="post"  enctype="multipart/form-data">
 
                 <div class="row">
                     <div class="col-md-4 pr-md-1">
@@ -71,7 +70,7 @@
                      </div>
                    </div>
                  </div>
-                 
+
 
               <input type="submit" value="agregar producto" class="btn btn-info">
               </form>
