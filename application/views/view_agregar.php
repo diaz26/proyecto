@@ -14,11 +14,11 @@
 
           <div class="row hero-padd">
 
-          <div class="col-md-6 col-12 col-sm-6 ml-auto mr-auto">
+          <div class="col-md-10 col-12 ml-auto mr-auto">
 
             <div class="hero-text">
 
-                <h2>Agregar productos </h2>
+                <h3>Agregar productos </h3>
                 <form action="<?=base_url(); ?>index.php/Productos/agregardeverdad/"  method="post"  enctype="multipart/form-data">
 
                 <div class="row">
@@ -62,20 +62,26 @@
                      </script>
                    </div>
                  </div>
-                 <div class="row">
-                   <div class="col-md-12 pr-md-1">
-                     <div class="form-group">
-                       <label><b>Descripcion:</b></label><br>
-                       <textarea name="Descripcion" class="form-control" rows="2" cols="80"></textarea>
+                 <div class="col-md-7 pl-md-1">
+                   <div class="row">
+                     <div class="col-md-12 pr-md-1">
+                       <div class="form-group">
+                         <label><b>Descripcion:</b></label><br>
+                         <textarea name="Descripcion" class="form-control" rows="2" cols="80"></textarea>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="row">
+                     <div class="col-md-12 pr-md-1">
+                       <br>
+                       <center><input type="submit" value="Agregar" style="width:150px;background-color:<?php echo $head->nav_bg; ?>" class="form-control"></center>
                      </div>
                    </div>
                  </div>
-
-
-              <input type="submit" value="agregar producto" class="btn btn-info">
+               </div>
               </form>
 
-              </div>
+
 
             </div>
 
