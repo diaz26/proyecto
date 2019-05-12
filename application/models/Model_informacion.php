@@ -29,7 +29,7 @@ class model_informacion extends CI_Model {
   public function actPage($datos,$id){
     $idd=$this->session->userdata('ID');
     $this->db->where('id',$id);
-    $this->db->where('id_dueno',$idd);
+    $this->db->where('id_usuario',$idd);
     $this->db->update('baseo_ecommerce',$datos);
   }
 }

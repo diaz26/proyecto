@@ -39,7 +39,7 @@
                       <b>Imagen:</b><br><img src="<?php echo base_url().$producto->Imagen;?>" width="100%" id="imaproducto">
                       <input type="file" name="tcarga" id="upload" value="<?php echo $producto->Imagen; ?>">
                       <script>
-                      document.getElementById("ver").onchange = function() {
+                      document.getElementById("upload").onchange = function() {
                         var reader = new FileReader(); //instanciamos el objeto de la api FileReader
 
                         reader.onload = function(e) {

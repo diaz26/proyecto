@@ -30,21 +30,16 @@ class Informacion extends CI_Controller {
 	public function modInf($flag=NULL){
 		if($this->session->userdata('logged_in')){
 			if ($this->session->userdata('ROL')=='Cliente') {
-				$datos=array();
-				if ($flag=='person') {
-					$datos=array(
-						'nombres'=>$this->input->post('nombres'),
-						'apellidos'=>$this->input->post('apellidos'),
-						'cc'=>$this->input->post('cc'),
-					);
-				}elseif ($flag=='contact') {
-					$datos=array(
-						'ciudad'=>$this->input->post('ciudad'),
-						'direccion'=>$this->input->post('direccion'),
-						'celular'=>$this->input->post('celular'),
-						'email'=>$this->input->post('email'),
-					);
-				}
+				$datos=array(
+					'nombres'=>$this->input->post('nombres'),
+					'apellidos'=>$this->input->post('apellidos'),
+					'cc'=>$this->input->post('cc'),
+					'ciudad'=>$this->input->post('ciudad'),
+					'direccion'=>$this->input->post('direccion'),
+					'celular'=>$this->input->post('celular'),
+					'email'=>$this->input->post('email'),
+					'paypal'=>$this->input->post('paypal'),
+				);
 				$id=$this->input->post('id');
 				$this->model_informacion->actInf($datos,$id);
 				redirect("informacion",'refresh');

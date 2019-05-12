@@ -37,11 +37,13 @@ class Pagina extends CI_Controller {
         $config['file_name']      = $file_name;
 
         $this->load->library('upload', $config);
-
-        $url_con=  $this->input->post('yt');
-        $cod_yt = substr(strrchr($url_con, "/"), 1 );
-        $base_yt= 'https://www.youtube.com/embed/';
-        $url_yt = $base_yt.$cod_yt;
+				$url_yt="";
+				if (!empty($_POST['yt'])) {
+					$url_con=  $this->input->post('yt');
+	        $cod_yt = substr(strrchr($url_con, "/"), 1 );
+	        $base_yt= 'https://www.youtube.com/embed/';
+	        $url_yt = $base_yt.$cod_yt;
+				}
 
         if ($this->upload->do_upload('logo')){
           $dataCargada = $this->upload->data();

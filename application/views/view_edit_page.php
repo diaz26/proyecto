@@ -7,16 +7,16 @@
     <div class="slide-home">
       <div class="slide-item">
         <div class="container">
-          <div class="row hero-padd">
+          <div class="row hero-padd" style="padding-top: 100px;">
             <div class="col-md-10 col-12 ml-auto mr-auto">
               <h3><b>Configurar Página</b></h3>
               <hr>
-              <form action="<?= base_url() ?>index.php/admin/modPage" method="post" enctype="multipart/form-data">
+              <form action="<?= base_url() ?>index.php/pagina/modPage" method="post" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-md-5 pr-md-1" style="">
                     <div class="form-group">
                       <b>Logo:</b><br><img src="<?= base_url().$page->logo;?>" width="10%" id="logo" alt="Sin logo">
-                      <input type="file" name="logo" id="upload" value="<?php echo $page->logo; ?>" required>
+                      <input type="file" name="logo" id="upload" value="<?php echo $page->logo; ?>">
                       <input type="hidden" name="id" value="<?php echo $page->id; ?>">
 
                       <script>
@@ -83,6 +83,7 @@
                   </div>
                 </div>
               </form>
+              <hr>
             </div>
           </div>
         </div>

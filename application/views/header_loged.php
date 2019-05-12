@@ -52,6 +52,9 @@
             if ($this->session->userdata('ROL')=='Cliente') {
               ?>
               <li class="nav-item">
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/cliente"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Inicio</span></a>
+              </li>
+              <li class="nav-item">
                 <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/informacion"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Informacion</span></a>
               </li>
               <li class="nav-item">
