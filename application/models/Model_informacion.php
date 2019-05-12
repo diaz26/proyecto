@@ -21,6 +21,12 @@ class model_informacion extends CI_Model {
     return $query->row();
   }
 
+  public function consultPageO($flag){
+    $sql= "SELECT be.*, bu.celular, bu.email FROM baseo_ecommerce be, baseo_usuarios bu WHERE be.nombre='$flag' and be.id_usuario=bu.id";
+    $query=$this->db->query($sql);
+    return $query->row();
+  }
+
   public function actInf($datos,$id){
     $this->db->where('id',$id);
     $this->db->update('baseo_usuarios',$datos);

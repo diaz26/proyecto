@@ -11,9 +11,19 @@
           <div class="row hero-padd" style="padding-top: 100px;">
             <div class="col-md-10 col-12 ml-auto mr-auto">
               <div class="hero-text">
-                <div class="alert alert-danger" role="alert">
-                  <center>Recuerda hacer las respectivas entregas de tus nuevos pedidos<br><a href="<?= base_url(); ?>index.php/pedidos"><?php echo "       ---->  Míralos Aquí  <----"; ?></a></center>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="alert alert-danger" role="alert">
+                      <center>Recuerda hacer las respectivas entregas de tus nuevos pedidos<br><a href="<?= base_url(); ?>index.php/pedidos"><?php echo "---->  Míralos Aquí  <----"; ?></a></center>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="alert alert-primary" role="alert">
+                      <center>Este es el link de tu página<br><a href="<?= base_url(); ?>index.php/pedidos"><?php echo base_url()."index.php/welcome/to/".$page->nombre; ?></a></center>
+                    </div>
+                  </div>
                 </div>
+
                 <div class="jumbotron jumbotron-fluid">
                   <div class="container">
                     <div class="row">

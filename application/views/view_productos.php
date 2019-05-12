@@ -12,13 +12,13 @@
 
         <div class="container">
 
-          <div class="row hero-padd">
+          <div class="row hero-padd" style="padding-top: 100px;">
 
             <div class="col-md-10 col-12 ml-auto mr-auto">
 
               <div class="hero-text">
 
-                <center><h3 style="color: black">Mis productos</h3></center>
+                <center><h3>Mis productos</h3></center>
                 <a href="<?= base_url()."index.php/productos/agregar";?>" style="text-align: center;width:15%;background-color: <?= $head->nav_bg; ?>" class="form-control">Agregar</a>
                 <br>
                 <table class="table">
@@ -28,9 +28,9 @@
                     ?>
                     <tr>
 
-                      <td class="text-center"><?php  echo $row->Nombre.$row->id; ?> </td>
+                      <td class="text-center"><?php  echo $row->Nombre; ?> </td>
                       <td class="text-center"> <button type="button" style="text-align: center;width:100%;background-color: <?= $head->nav_bg; ?>;color: black" class="form-control" data-toggle="modal" data-target="#producto<?= $row->id; ?>">Ver</button> </td>
-                      <td class="text-center"><?php  echo $row->Precio;?> $</td>
+                      <td class="text-center"><?php  echo $row->Precio;?> $USD</td>
                       <td class="text-center"><a href="<?= base_url()."index.php/productos/Editar/".$row->id;?>" style="text-align: center;width:100%;background-color: #0069d9;color: black " class="form-control" >modificar</a></td>
                       <td class="text-center"><a href="<?= base_url()."index.php/productos/Eliminar/".$row->id;?>"  style="text-align: center;width:100%;background-color: #c82333;color: black " class="form-control" >eliminar</a></td>
 

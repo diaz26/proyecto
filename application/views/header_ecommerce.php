@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="LeadDigital  Landing page Template">
   <!--Titulo-->
-  <title><?= $head->nombre; ?></title>
+  <title><?= $page->nombre; ?></title>
   <!--Css-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
@@ -25,8 +25,8 @@
   <!-- Fonts styles -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="shortcut icon" href="<?= base_url().$head->logo; ?>" >
-  <link rel="icon" href="<?= base_url().$head->logo; ?>" >
+  <link rel="shortcut icon" href="<?= base_url().$page->logo; ?>" >
+  <link rel="icon" href="<?= base_url().$page->logo; ?>" >
   <!--JS-->
   <script src="<?= base_url(); ?>assets/js/modernizr.js"></script>
 </head>
@@ -42,33 +42,21 @@
 
   <header class="navbar-header">
 
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color:<?= $head->nav_bg; ?>">
-      <div class="container" style="background-color:<?= $head->nav_bg; ?>">
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color:<?= $page->nav_bg; ?>">
+      <div class="container" style="background-color:<?= $page->nav_bg; ?>">
 
-        <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$head->logo; ?>" alt="">
-          <span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->abreviacion; ?></span>
+        <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$page->logo; ?>" alt="">
+          <span style="font-size: 16px;color:<?= $page->nav_color; ?>"><?= $page->nombre; ?></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon  icon_menu" style="color:<?= $head->color; ?>"></span>
+          <span class="navbar-toggler-icon  icon_menu" style="color:<?= $page->nav_color; ?>"></span>
         </button>
 
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto" style="background-color:<?= $head->nav_bg; ?>">
-            <li class="nav-item active">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op1; ?></span></a>
-            </li>
+          <ul class="navbar-nav ml-auto" style="background-color:<?= $page->nav_bg; ?>">
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/productos"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op2; ?></span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/cliente"><span style="font-size: 16px;color:<?= $page->nav_color; ?>">Carrito</span></a>
             </li>
-
-            <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/service"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op3; ?></span></a>
-            </li>
-
-            <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op4; ?></span></a>
-            </li>
-
           </ul>
 
         </div>

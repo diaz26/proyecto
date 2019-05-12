@@ -6,12 +6,12 @@
   <body>
     <footer class="footer" >
       <div class="footer-warpper">
-        <section class="padd-40 bg-color-2" style="background-color: <?= $head->nav_bg; ?>">
+        <section class="padd-40 bg-color-2" style="background-color: <?= $page->nav_bg; ?>">
           <div class="container">
             <div class="row">
               <div class="col-md-5 col-lg-5 col-12">
                 <div class="quote-bloc">
-                  <p style="color:<?= $head->color; ?>"><?= $head->sec_text; ?></p>
+                  <p style="color:<?= $page->nav_color; ?>"><?= $head->sec_text; ?></p>
                 </div>
               </div>
               <div class="col-md-7 col-lg-7 col-12">
@@ -20,7 +20,7 @@
                     <div class="form-group pd-rg-0 col-md-11 col-lg-11">
                       <div class="input-icon">
                         <input type="text" class="form-control" placeholder="<?= $head->search; ?>">
-                        <button class="btn btn-blue-1" style="background-color: <?= $head->nav_bg; ?> ; color: <?= $head->color; ?>"><i class="arrow_carrot-right_alt2"></i></button>
+                        <button class="btn btn-blue-1" style="background-color: <?= $page->nav_bg; ?> ; color: <?= $page->nav_color; ?>"><i class="arrow_carrot-right_alt2"></i></button>
                       </div>
                     </div>
                   </div>
@@ -33,9 +33,9 @@
           <div class="container">
             <div class="footer-bottom-content clearfix">
               <div class="row">
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 ml-auto mr-auto">
                   <div class="logo-footer">
-                    <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$head->logo; ?>" alt=""><span><?= $head->abreviacion; ?></span></a>
+                    <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$page->logo; ?>" alt=""><span><?= $page->nombre; ?></span></a>
                   </div>
                   <ul class="list-social list-inline">
                     <li>
@@ -55,31 +55,14 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                  <h5>Menu</h5>
-                  <ul class="list-menu">
-                    <li>
-                      <a href="<?= base_url(); ?>"><?= $head->op1; ?> </a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/productos"><?= $head->op2; ?></a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/service"><?= $head->op3; ?></a>
-                    </li>
-                    <li>
-                      <a href="<?= base_url(); ?>index.php/login"><?= $head->op4; ?></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 ml-auto mr-auto">
                   <h5>Contact Info</h5>
                   <ul class="list-menu contact-list">
                     <li>
-                      <?= $head->correo_contact; ?>
+                      <?= $page->email; ?>
                     </li>
                     <li>
-                      <?= $head->cel_contact; ?>
+                      <?= $page->celular; ?>
                      </li>
                   </ul>
                 </div>
