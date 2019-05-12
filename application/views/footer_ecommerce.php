@@ -6,29 +6,6 @@
   <body>
     <footer class="footer" >
       <div class="footer-warpper">
-        <section class="padd-40 bg-color-2" style="background-color: <?= $page->nav_bg; ?>">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-5 col-lg-5 col-12">
-                <div class="quote-bloc">
-                  <p style="color:<?= $page->nav_color; ?>"><?= $head->sec_text; ?></p>
-                </div>
-              </div>
-              <div class="col-md-7 col-lg-7 col-12">
-                <form class="form-quote">
-                  <div class="form-row">
-                    <div class="form-group pd-rg-0 col-md-11 col-lg-11">
-                      <div class="input-icon">
-                        <input type="text" class="form-control" placeholder="<?= $head->search; ?>">
-                        <button class="btn btn-blue-1" style="background-color: <?= $page->nav_bg; ?> ; color: <?= $page->nav_color; ?>"><i class="arrow_carrot-right_alt2"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
         <div class="footer-top">
           <div class="container">
             <div class="footer-bottom-content clearfix">
