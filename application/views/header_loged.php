@@ -52,19 +52,22 @@
             if ($this->session->userdata('ROL')=='Cliente') {
               ?>
               <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Perfil</span></a>
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/informacion"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Informacion</span></a>
               </li>
               <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Mis productos</span></a>
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/pagina"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Pagina web</span></a>
               </li>
               <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Pedidos</span></a>
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/productos"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Productos</span></a>
               </li>
               <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Mi servicio</span></a>
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/pedidos"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Pedidos</span></a>
               </li>
               <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Mis ganancias</span></a>
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/ventas"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Ventas</span></a>
+              </li>
+              <li class="nav-item">
+                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/servicio"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Servicio</span></a>
               </li>
               <?php
             }

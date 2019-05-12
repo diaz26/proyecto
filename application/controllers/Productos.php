@@ -15,9 +15,9 @@ class Productos extends CI_Controller {
     if ($this->session->userdata('logged_in')) {
       if($this->session->userdata('ROL')=='Cliente'){
         $header['head']=$this->model_header->consultOficial(1);
-        $header['productos']=$this->model_productos->traerproductos();
+        $header['productos']=$this->model_productos->Productos();
         $this->load->view('header_loged',$header);
-        $this->load->view('view_cliente');
+        $this->load->view('view_productos');
         $this->load->view('footer_loged');
       }else {
         $this->load->view('error_page');
@@ -26,6 +26,7 @@ class Productos extends CI_Controller {
       redirect("login");
     }
   }
+
   public function Editar($id){
     if ($this->session->userdata('logged_in')) {
 
@@ -70,7 +71,6 @@ class Productos extends CI_Controller {
             'Descripcion'=>$this->input->post('Descripcion'),
             'Imagen'=>$urldeimagen.$dataCargada['file_name'],
             'Precio'=>$this->input->post('Precio'),
-
           );
         }
         else {
@@ -83,7 +83,7 @@ class Productos extends CI_Controller {
         }
         $id=$this->input->post('id');
         $this->model_productos->modificar($id,$datap);
-        redirect("Cliente",'refresh');
+        redirect("Productos",'refresh');
       }else {
         $this->load->view('error_page');
       }
@@ -138,9 +138,8 @@ class Productos extends CI_Controller {
             'id_dueno'=>$this->session->userdata('ID')
           );
         }
-
         $this->model_productos->agregar($agregados);
-        redirect("Cliente",'refresh');
+        redirect("Productos",'refresh');
       }else {
         $this->load->view('error_page');
       }
@@ -159,7 +158,7 @@ class Productos extends CI_Controller {
         if ($id_dueno==$num->id_dueno) {
           $this->model_productos->eliminar($id);
         }
-        redirect("Cliente",'refresh');
+        redirect("Productos",'refresh');
       }else {
         $this->load->view('error_page');
       }
