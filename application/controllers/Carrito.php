@@ -129,29 +129,17 @@ public function generapedido(){
     );
     //	$id_pedido=$this->model_payments->inserta_pago_pedido($pedido);
 
-    if($_POST["pay"]=="paypal"){
-      //agregado datos para enviar al formulario de paypal
-      $this->load->view('view_temp_paypal');
-      $cuenta_paypal=$this->model_payments->consul_cuenta_paypal('cuenta_paypal');
-      $paypal =	array( "cuenta_paypal" =>$cuenta_paypal);
-      $pago= $pedido + $paypal+$data_cliente;
-      $this->load->view('view_temp_paypal', $pago);
-    }else {
-      $accountId=$this->model_pagos->consul_cuenta_payU('accountId');
-      $merchantId=$this->model_pagos->consul_cuenta_payU('merchantId');
-      $ApiKey=$this->model_pagos->consul_cuenta_payU('apiKey');
+    //agregado datos para enviar al formulario de paypal
+    $this->load->view('view_temp_paypal');
+    $cuenta_paypal=$this->model_payments->consul_cuenta_paypal('cuenta_paypal');
+    $paypal =	array( "cuenta_paypal" =>$cuenta_paypal);
+    $pago= $pedido + $paypal+$data_cliente;
+    $this->load->view('view_temp_paypal', $pago);
 
-      $payu =	array( "accountId" =>$accountId,
-      "merchantId"=>$merchantId,
-      "ApiKey"=>$ApiKey,);
-      $pago= $pedido + $payu +$data_cliente;
-      $this->load->view('view_temp_payu',$pago);
 
-    }
-
-  }else {
+  }else //{
     //recorre para enviar los correos de los PDFS
-    $consul_PDF=$this->model_login->consul_PDF('apiKey');
+    /*$consul_PDF=$this->model_login->consul_PDF('apiKey');
     if(isset($_SESSION['carrito'])){
       $subtotal=0;
       $datos=$_SESSION['carrito'];
@@ -159,9 +147,9 @@ public function generapedido(){
         $subtotal= $subtotal + ($datos[$i]['Cantidad']*$datos[$i]['Precio']);
       }
       return $subtotal;
-    }
+    }*/
 
-  }
+  //}
 }else{
   $this->session->set_flashdata('reco', '<div class="alert alert-danger text-center">carrito vacío</div>');
   redirect(base_url()."index.php/Tienda/carga_carrito");

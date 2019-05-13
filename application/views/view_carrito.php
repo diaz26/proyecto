@@ -2,34 +2,34 @@
 <html lang="en">
 <head>
 
-    <!--Metas-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="LeadDigital  Landing page Template">
-    <!--Titulo-->
-    <title><?= $page->nombre; ?></title>
-    <!--Css-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
-    <!--elegant icon font -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/elegant-icons.css">
-    <!--Animate -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/animate.css">
-    <!-- Slick -carousel-->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/slick.css">
-    <!-- Magnific Popup-->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/magnific-popup.css">
-    <!--Template Stylesheets css-->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/responsive.css">
-    <!-- Fonts styles -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="<?= base_url().$page->logo; ?>" >
-    <link rel="icon" href="<?= base_url().$page->logo; ?>" >
-    <!--JS-->
-    <script src="<?= base_url(); ?>assets/js/modernizr.js"></script>
+  <!--Metas-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LeadDigital  Landing page Template">
+  <!--Titulo-->
+  <title><?= $page->nombre; ?></title>
+  <!--Css-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
+  <!--elegant icon font -->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/elegant-icons.css">
+  <!--Animate -->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/animate.css">
+  <!-- Slick -carousel-->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/slick.css">
+  <!-- Magnific Popup-->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/magnific-popup.css">
+  <!--Template Stylesheets css-->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/responsive.css">
+  <!-- Fonts styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?= base_url().$page->logo; ?>" >
+  <link rel="icon" href="<?= base_url().$page->logo; ?>" >
+  <!--JS-->
+  <script src="<?= base_url(); ?>assets/js/modernizr.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
   <section id="home" class="hero">
@@ -101,23 +101,22 @@
 
             <div class="col-md-7  ">
               <div class="checkout-tabs">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs text-right" role="tablist">
-                  <li role="presentation" class="active"><a href="#shipping" aria-controls="shipping" role="tab" data-toggle="tab"><span>1/3</span>Datos de envío</a></li>
-                </ul>
                 <!-- Tab panes -->
+                <center> <h4> Completa el siguiente formulario para terminar la compra</h4> </center>
                 <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="shipping">
                     <?php echo $this->session->flashdata('reco'); ?>
                     <form  action="<?= base_url() ?>index.php/carrito/generapedido/" method="post" onsubmit="return validacion()" enctype="multipart/form-data" class="signup-form target-area active">
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <label>Correo Electrónico*</label>
-                          <input type="email" id="correoc" name="correoc" class="form-control" required>
-                        </div><!-- End .form-group -->
-                        <div class="checkbox pull-left">
-                        </div><!-- End .checkbox -->
-                      </div><!-- End .col-sm-4 -->
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label>Correo Electrónico*</label>
+                            <input type="email" id="correoc" name="correoc" class="form-control" required>
+                          </div><!-- End .form-group -->
+                          <div class="checkbox pull-left">
+                          </div><!-- End .checkbox -->
+                        </div><!-- End .col-sm-4 -->
+                      </div>
                       <div class="row">
                         <div class="col-sm-6">
                           <div class="form-group">
@@ -133,7 +132,13 @@
                         </div><!-- End .col-sm-4 -->
                       </div>
                       <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label>C.C.*</label>
+                            <input type="text" id="cedula" name="cedula" class="form-control" required>
+                          </div><!-- End .form-group -->
+                        </div><!-- End .col-sm-4 -->
+                        <div class="col-sm-9">
                           <div class="form-group">
                             <label>Dirección*</label>
                             <input type="text" id="direccionc" name="direccionc" class="form-control" required>
@@ -160,12 +165,17 @@
                       $cant_pro=count($_SESSION['carrito']);
                       ?>
                       <input type="hidden"  name="cant_pro" class="form-control" value="<?php echo $cant_pro; ?>">
-                      <br>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-5 ml-auto mr-auto">
+                          <img src="<?= base_url(); ?>images/PayPal.png" alt="">
+                        </div>
+                      </div>
+                      <hr>
                       <div class="col-sm-12" style="text-align:center">
                         <div class="clearfix form-action">
                           <span class="input-group-btn">
-                            <center><img src="<? base_url(); ?>images/PayPal.png" alt=""></center>
-                            <input style="background:#02B939;text-align:center" type="submit" class="btn btn-primary btn-sm" value="COMPRAR">
+                            <center><input style="background:<?= $page->nav_bg; ?>; color:<?= $page->nav_color; ?> ; text-align:center; width: 150px" type="submit" class="form-control" value="comprar"></center>
                           </span>
                         </div><!-- End .form-action -->
                       </div>
@@ -180,9 +190,9 @@
     </div>
   </section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
