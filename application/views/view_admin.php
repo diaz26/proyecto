@@ -84,18 +84,14 @@
                   <div class="col-md-3 px-md-1" style="">
                     <div class="form-group">
                       <label><b>Opcion 2:</b></label><br>
-                      <input type="text" name="op2" class="form-control" value="<?php echo $head->op2; ?>">
-                    </div>
-                  </div>
-                  <div class="col-md-3 px-md-1" style="">
-                    <div class="form-group">
-                      <label><b>Opcion 3:</b></label><br>
                       <input type="text" name="op3" class="form-control" value="<?php echo $head->op3; ?>">
+                      <input type="hidden" name="op2" class="form-control" value="<?php echo $head->op2; ?>">
                     </div>
                   </div>
                   <div class="col-md-3 pl-md-1" style="">
                     <div class="form-group">
-                      <label><b>Opcion 4:</b></label><br>
+                      <label><b>Opcion 3:</b></label><br>
+                      <input type="hidden" name="op3" class="form-control" value="<?php echo $head->op3; ?>">
                       <input type="text" name="op4" class="form-control" value="<?php echo $head->op4; ?>">
                     </div>
                   </div>
@@ -219,7 +215,7 @@
 
               </form>
               <hr>
-              <form action="<?= base_url() ?>index.php/admin/modFoot" method="post">
+              <!--form action="<?= base_url() ?>index.php/admin/modFoot" method="post">
                 <p style="color:black; font-size:18px"><b>Footer</b> </p>
                 <div class="row">
                   <div class="col-md-4 pr-md-1" style="">
@@ -243,7 +239,7 @@
                   </div>
                 </div>
 
-              </form>
+              </form-->
             </div>
           </div>
         </div>
@@ -258,7 +254,7 @@
           <div class="row hero-padd">
             <div class="col-md-10 col-12 col-sm-10 ml-auto mr-auto">
               <h3><b>Editar Servicio</b></h3>
-              <hr>
+              <!--hr>
               <form action="<?= base_url() ?>index.php/admin/modPar" method="post">
                 <p style="color:black; font-size:18px"><b>Parametros</b> </p>
                 <div class="row">
@@ -280,7 +276,7 @@
                     <center><input type="submit" value="Actualizar" style="width:150px;background-color:<?php echo $head->nav_bg; ?>" class="form-control"></center>
                   </div>
                 </div>
-              </form>
+              </form-->
               <hr>
               <form action="<?= base_url() ?>index.php/admin/modVisSer" method="post" enctype="multipart/form-data">
                 <p style="color:black; font-size:18px"><b>Vista</b> </p>
@@ -308,37 +304,37 @@
                   </div>
                   <div class="col-md-7" style="">
                     <div class="row">
-                      <div class="col-md-5 pr-md-1" style="">
+                      <div class="col-md-12 pr-md-1" style="">
                         <div class="form-group">
                           <label><b>Nombre:</b></label><br>
                           <input type="text" name="nombre" class="form-control" value="<?php echo $service->nombre; ?>">
                         </div>
                       </div>
-                      <div class="col-md-7 pl-md-1" style="">
+                      <!--div class="col-md-7 pl-md-1" style="">
                         <div class="form-group">
                           <label><b>Texto valor:</b></label><br>
                           <input type="text" name="valor_text" class="form-control" value="<?php echo $service->valor_text; ?>">
                         </div>
-                      </div>
+                      </div-->
                     </div>
                     <div class="row">
                       <div class="col-md-12" style="">
                         <div class="form-group">
                           <label><b>Descripcion:</b></label><br>
-                          <textarea name="descripcion" class="form-control" rows="2" cols="80"><?php echo $service->descripcion; ?></textarea>
+                          <textarea name="descripcion" class="form-control" rows="2"><?php echo $service->descripcion; ?></textarea>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12" style="">
                         <div class="row">
-                          <div class="col-md-6 pr-md-1" style="">
+                          <!--div class="col-md-6 pr-md-1" style="">
                             <div class="form-group">
                               <label><b>Botón:</b></label><br>
                               <input type="text" name="button" class="form-control" value="<?php echo $service->button; ?>">
                             </div>
-                          </div>
-                          <div class="col-md-6 pl-md-1" style="">
+                          </div-->
+                          <div class="col-md-12" style="">
                             <br>
                             <center><input type="submit" value="Actualizar" style="width:150px;background-color:<?php echo $head->nav_bg; ?>" class="form-control"></center>
                           </div>
