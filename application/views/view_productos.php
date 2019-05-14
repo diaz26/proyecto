@@ -39,12 +39,16 @@
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLongTitle"><?= $row->Nombre; ?></h5>
+
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
-                              <img src="<?= base_url().$row->Imagen;?>">
+                              <img src="<?= base_url().$row->Imagen;?>" class="rounded mx-auto d-block" alt="...">
+                              <p><?php $row->Descripcion; ?></p>
+                              <p><?php $row->Marca; ?></p>
+                              <p><?php $row->categoria; ?></p>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

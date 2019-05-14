@@ -16,20 +16,26 @@
                   <div class="col-md-4 pr-md-1">
                     <div class="form-group">
                       <label><b>Nombre</b></label><br>
-                      <input type="text" class="form-control" name="Nombre" value="<?php  echo $producto->Nombre; ?>">
+                      <input type="text" class="form-control" name="Nombre" value="<?php  echo $producto->Nombre; ?>" required>
                       <input type="hidden" name="id" value="<?php  echo $producto->id; ?>">
                     </div>
                   </div>
-                  <div class="col-md-4 px-md-1">
+                  <div class="col-md-3 px-md-1">
                     <div class="form-group">
                       <label><b>Marca</b></label><br>
-                      <input type="text" class="form-control" name="Marca" value="<?php  echo $producto->Marca; ?>">
+                      <input type="text" class="form-control" name="Marca" value="<?php  echo $producto->Marca; ?>" required>
                     </div>
                   </div>
-                  <div class="col-md-4 pl-md-1">
+                  <div class="col-md-2 pl-md-1">
                     <div class="form-group">
-                      <label><b>Precio</b></label><br>
-                      <input type="number" class="form-control" name="Precio" value="<?php  echo $producto->Precio; ?>">
+                      <label><b>Precio ($USD)</b></label><br>
+                      <input type="number" class="form-control" name="Precio" value="<?php  echo $producto->Precio; ?>" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 pl-md-1">
+                    <div class="form-group">
+                      <label><b>Categoria</b></label><br>
+                      <input type="text" class="form-control" name="categoria" value="<?php  echo $producto->categoria; ?>" required>
                     </div>
                   </div>
                 </div>
@@ -59,7 +65,7 @@
                       <div class="col-md-12 pr-md-1">
                         <div class="form-group">
                           <label><b>Descripcion:</b></label><br>
-                          <textarea name="Descripcion" class="form-control" rows="2" cols="80"><?php echo $producto->Descripcion; ?></textarea>
+                          <textarea name="Descripcion" class="form-control" rows="2" required><?php echo $producto->Descripcion; ?></textarea>
                         </div>
                       </div>
                     </div>

@@ -31,6 +31,10 @@ class Model_carrito extends CI_Model {
     return $this->db->insert_id();
   }
 
+  public function inserta_pru($new_pru){
+    $this->db->insert('prueba_pago',$new_pru);
+    return $this->db->insert_id();
+  }
 
 
 }

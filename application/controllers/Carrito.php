@@ -108,7 +108,7 @@ public function generapedido(){
   if ($cant_pro>0){
     if($valor_pago>0){
 
-      
+
 
       $cadena_seguridad=$this->genera_cod_pedido();
       $id_user=$this->model_informacion->idUser($this->input->post('id_page'));
@@ -161,7 +161,13 @@ function generateRandomString($length) {
 }
 
 public function insertPago($cod_pedido,$id_usuario,$valor_pago){
-  if($_POST['payment_status']=='Completed'){
+  $estado_pru = array ("estado" => $_POST['payment_status'],
+												"codpedido" => $cod_pedido,
+										   "idusuario" => $id_usuario,
+										 	 "value" => $valor_pago,
+									     "fecha" =>date("Y-m-d H:i:s") );
+  $id_trans_pru= $this->model_carrito->inserta_pru($estado_pru);
+  /*if($_POST['payment_status']=='Completed'){
     log_message('error', "pago exitoso");
     $pago=$this->model_carrito->buscaPedido($cod_pedido);
 
@@ -178,7 +184,7 @@ public function insertPago($cod_pedido,$id_usuario,$valor_pago){
   }else{
 
   log_message('error', "error en el pago");
-}
+}*/
 }
 
 }
