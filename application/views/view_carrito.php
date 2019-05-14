@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="LeadDigital  Landing page Template">
   <!--Titulo-->
-  <title><?= $page->nombre; ?></title>
   <!--Css-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
@@ -26,8 +25,7 @@
   <!-- Fonts styles -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="shortcut icon" href="<?= base_url().$page->logo; ?>" >
-  <link rel="icon" href="<?= base_url().$page->logo; ?>" >
+
   <!--JS-->
   <script src="<?= base_url(); ?>assets/js/modernizr.js"></script>
 </head>
@@ -111,7 +109,7 @@
                         <div class="col-sm-12">
                           <div class="form-group">
                             <label>Correo Electrónico*</label>
-                            <input type="email" id="correoc" name="correoc" class="form-control" required>
+                            <input type="email" id="correoc" name="correo" class="form-control" required>
                           </div><!-- End .form-group -->
                           <div class="checkbox pull-left">
                           </div><!-- End .checkbox -->
@@ -121,13 +119,13 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Nombre completo*</label>
-                            <input type="text" id="nombrec" name="nombrec" class="form-control" required>
+                            <input type="text" id="nombrec" name="nombre" class="form-control" required>
                           </div><!-- End .form-group -->
                         </div><!-- End .col-sm-4 -->
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Celular*</label>
-                            <input type="text" id="celularc" name="celularc" class="form-control" required>
+                            <input type="text" id="celularc" name="celular" class="form-control" required>
                           </div><!-- End .form-group -->
                         </div><!-- End .col-sm-4 -->
                       </div>
@@ -141,7 +139,7 @@
                         <div class="col-sm-9">
                           <div class="form-group">
                             <label>Dirección*</label>
-                            <input type="text" id="direccionc" name="direccionc" class="form-control" required>
+                            <input type="text" id="direccionc" name="direccion" class="form-control" required>
                           </div><!-- End .form-group -->
                         </div><!-- End .col-sm-4 -->
                       </div><!-- End .row -->
@@ -149,13 +147,13 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Departamento*</label>
-                            <input type="text" id="departamentoc" name="departamentoc"class="form-control" required>
+                            <input type="text" id="departamentoc" name="departamento" class="form-control" required>
                           </div><!-- End .form-group -->
                         </div><!-- End .col-sm-4 -->
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Ciudad*</label>
-                            <input type="text" id="ciudadc" name="ciudadc" class="form-control" required>
+                            <input type="text" id="ciudadc" name="ciudad" class="form-control" required>
                           </div><!-- End .form-group -->
                         </div><!-- End .col-sm-4 -->
                       </div><!-- End .row -->
@@ -164,7 +162,9 @@
                       <?php
                       $cant_pro=count($_SESSION['carrito']);
                       ?>
-                      <input type="hidden"  name="cant_pro" class="form-control" value="<?php echo $cant_pro; ?>">
+                      <input type="hidden" name="cant_pro" class="form-control" value="<?php echo $cant_pro; ?>">
+                      <input type="hidden" name="id_page" class="form-control" value="<?php echo $page->id; ?>">
+                      <input type="hidden" name="page" class="form-control" value="<?php echo $page->nombre; ?>">
                       <hr>
                       <div class="row">
                         <div class="col-sm-5 ml-auto mr-auto">

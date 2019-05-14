@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <title><?= $page->nombre; ?></title>
+  <link rel="shortcut icon" href="<?= base_url().$page->logo; ?>" >
+  <link rel="icon" href="<?= base_url().$page->logo; ?>" >
 </head>
 <body>
 
@@ -19,7 +22,7 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto" style="background-color:<?= $page->nav_bg; ?>">
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/cliente"><span style="font-size: 16px;color:<?= $page->nav_color; ?>">Carrito</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/cliente"><span style="font-size: 16px;color:<?= $page->nav_color; ?>">.</span></a>
             </li>
           </ul>
 
