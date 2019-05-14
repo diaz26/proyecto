@@ -8,6 +8,7 @@ class Productos extends CI_Controller {
     $this->load->model('model_header');
     $this->load->model('model_clientes');
     $this->load->model('model_productos');
+    $this->load->model('model_informacion');
   }
 
   public function index()
@@ -71,10 +72,12 @@ class Productos extends CI_Controller {
             'Descripcion'=>$this->input->post('Descripcion'),
             'Imagen'=>$urldeimagen.$dataCargada['file_name'],
             'Precio'=>$this->input->post('Precio'),
+            'categoria'=>$this->input->post('categoria'),
           );
         }
         else {
           $datap = array(
+            'categoria'=>$this->input->post('categoria'),
             'Nombre' => $this->input->post('Nombre'),
             'Marca'=>$this->input->post('Marca'),
             'Descripcion'=>$this->input->post('Descripcion'),
@@ -127,19 +130,17 @@ class Productos extends CI_Controller {
             'Descripcion'=>$this->input->post('Descripcion'),
             'Imagen'=>$urldeimagen.$dataCargada['file_name'],
             'Precio'=>$this->input->post('Precio'),
+            'categoria'=>$this->input->post('categoria'),
+            'cod_producto'=>$this->genera_cod_pro(),
             'id_dueno'=>$this->session->userdata('ID')
           );
+          $this->model_productos->agregar($agregados);
+          redirect("Productos",'refresh');
         }else{
-          $agregados = array(
-            'Nombre'=>$this->input->post('Nombre'),
-            'Marca'=>$this->input->post('Marca'),
-            'Descripcion'=>$this->input->post('Descripcion'),
-            'Precio'=>$this->input->post('Precio'),
-            'id_dueno'=>$this->session->userdata('ID')
-          );
+          $this->session->set_flashdata('error','<div class="alert alert-danger text-center">Carga incorrecta! Agregue una imagen</div>');
+          redirect("productos/agregar");
         }
-        $this->model_productos->agregar($agregados);
-        redirect("Productos",'refresh');
+
       }else {
         $this->load->view('error_page');
       }
@@ -167,5 +168,18 @@ class Productos extends CI_Controller {
     }
   }
 
+  public function genera_cod_pro(){
+    #cosulta consecutivo
+    $consecutivo= $this->model_informacion->consultConsec(1);
+    $data_update = array("pr900"	=> $consecutivo+1,);
+    $this->model_informacion->alteraConsec($data_update);
+    //Genera número de pedido
+    $cod_pedido ="COD_PROD".$this->generateRandomString(6).$consecutivo;
+    return $cod_pedido;
+  }
+
+  function generateRandomString($length) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+  }
 
 }

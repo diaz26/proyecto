@@ -58,19 +58,12 @@
               <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op1; ?></span></a>
             </li>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/productos"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op2; ?></span></a>
-            </li>
-
-            <li class="nav-item">
               <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/service"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op3; ?></span></a>
             </li>
-
             <li class="nav-item">
               <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->op4; ?></span></a>
             </li>
-
           </ul>
-
         </div>
       </div>
     </nav>

@@ -39,7 +39,15 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:<?= $head->nav_bg; ?>">
       <div class="container" style="background-color:<?= $head->nav_bg; ?>">
 
-        <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$head->logo; ?>" alt="">
+        <a class="navbar-brand" href="
+        <?php
+        if ($this->session->userdata('ROL')=='Cliente') {
+          echo base_url()."index.php/cliente";
+        }else {
+          echo base_url()."index.php/admin";
+        }
+         ?>
+        "> <img src="<?= base_url().$head->logo; ?>" alt="">
           <span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>"><?= $head->abreviacion; ?></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,9 +77,6 @@
               <li class="nav-item">
                 <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/ventas"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Ventas</span></a>
               </li>
-              <li class="nav-item">
-                <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/servicio"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Servicio</span></a>
-              </li>
               <?php
             }
             if ($this->session->userdata('ROL')=='Admin') {
@@ -93,7 +98,7 @@
             }
             ?>
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login/session_dest"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">Salir</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/login/session_dest"><span style="font-size: <?= $head->size; ?>px;font-family: <?= $head->fuente; ?>;color:<?= $head->color; ?>">salir</span></a>
             </li>
           </ul>
 

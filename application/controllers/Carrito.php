@@ -106,67 +106,85 @@ public function generapedido(){
   $valor_pago=$_POST["valorpago"];
 
   if ($cant_pro>0){
-
     if($valor_pago>0){
-      $cadena_seguridad= $this->get_random_string(35);
-      $data_cliente = array(	"nombre" 		 => $_POST["nombrec"],
-      "correo" 	     		=> $_POST["correoc"],
-      "celular" 	 		  => $_POST["celularc"],
-      "direccion" 	 		=> $_POST["direccionc"],
-      "departamento" 	 	=> $_POST["departamentoc"],
-      "ciudad" 	 				=> $_POST["ciudadc"],
-      "fecha_registro" 	=> date("Y-m-d H:i:s"),
-      "security"		 		=> $cadena_seguridad,
-    );
-    //  $id_usuario=$this->model_login->inserta_user($data_cliente);
 
-    $pedido=array(
-      "id_usuario" 	=> 10,//$id_usuario,
-      "fecha_registro" 	=> date("Y-m-d H:i:s"),
-      "valor_pago" 	=> $_POST["valorpago"],
-      "moneda" 	=> "USD",
-      "cod_pedido" 	=> "BE123"//$codpedido,
-    );
-    //	$id_pedido=$this->model_payments->inserta_pago_pedido($pedido);
 
-    if($_POST["pay"]=="paypal"){
-      //agregado datos para enviar al formulario de paypal
-      $this->load->view('view_temp_paypal');
-      $cuenta_paypal=$this->model_payments->consul_cuenta_paypal('cuenta_paypal');
+
+      $cadena_seguridad=$this->genera_cod_pedido();
+      $id_user=$this->model_informacion->idUser($this->input->post('id_page'));
+      $data_pedido = array(
+        "nombre" 		 => $_POST["nombre"],
+        "correo" 	     		=> $_POST["correo"],
+        "celular" 	 		  => $_POST["celular"],
+        "cedula" 	 		=> $_POST["cedula"],
+        "direccion" 	 		=> $_POST["direccion"],
+        "departamento" 	 	=> $_POST["departamento"],
+        "ciudad" 	 				=> $_POST["ciudad"],
+        "fecha_pedido" 	=> date("Y-m-d H:i:s"),
+        "cod_pedido"		 		=> $cadena_seguridad,
+        "monto"		 		=> $_POST["valorpago"],
+        "id_usuario" 	=> $id_user->id,
+
+      );
+      $this->model_carrito->insertaPedido($data_pedido);
+      $pedido=array(
+        "valor_pago" 	=> $_POST["valorpago"],
+        "moneda" 	=> "USD",
+        "nombre_producto" 	=> "Factura",
+        "pageee"		 		=> $_POST["page"],
+      );
+      //	$id_pedido=$this->model_payments->inserta_pago_pedido($pedido);
+      $cuenta_paypal=$this->model_informacion->consul_cuenta_paypal($this->input->post('id_page'));
       $paypal =	array( "cuenta_paypal" =>$cuenta_paypal);
-      $pago= $pedido + $paypal+$data_cliente;
+      $pago= $pedido+$paypal+$data_pedido;
       $this->load->view('view_temp_paypal', $pago);
-    }else {
-      $accountId=$this->model_pagos->consul_cuenta_payU('accountId');
-      $merchantId=$this->model_pagos->consul_cuenta_payU('merchantId');
-      $ApiKey=$this->model_pagos->consul_cuenta_payU('apiKey');
-
-      $payu =	array( "accountId" =>$accountId,
-      "merchantId"=>$merchantId,
-      "ApiKey"=>$ApiKey,);
-      $pago= $pedido + $payu +$data_cliente;
-      $this->load->view('view_temp_payu',$pago);
-
     }
-
-  }else {
-    //recorre para enviar los correos de los PDFS
-    $consul_PDF=$this->model_login->consul_PDF('apiKey');
-    if(isset($_SESSION['carrito'])){
-      $subtotal=0;
-      $datos=$_SESSION['carrito'];
-      for($i=0;$i<count($datos);$i++){
-        $subtotal= $subtotal + ($datos[$i]['Cantidad']*$datos[$i]['Precio']);
-      }
-      return $subtotal;
-    }
-
+  }else{
+    $pagee=$this->input->post('page');
+    $this->session->set_flashdata('reco', '<div class="alert alert-danger text-center">carrito vacío</div>');
+    redirect(base_url()."index.php/carrito/carga_carrito/$pagee");
   }
-}else{
-  $this->session->set_flashdata('reco', '<div class="alert alert-danger text-center">carrito vacío</div>');
-  redirect(base_url()."index.php/Tienda/carga_carrito");
 }
+
+public function genera_cod_pedido(){
+  #cosulta consecutivo
+  $consecutivo= $this->model_informacion->consultConsec(1);
+  $data_update = array("pr900"	=> $consecutivo+1,);
+  $this->model_informacion->alteraConsec($data_update);
+  //Genera número de pedido
+  $cod_pedido ="COD_PED".$this->generateRandomString(6).$consecutivo;
+  return $cod_pedido;
+}
+
+function generateRandomString($length) {
+  return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+
+public function insertPago($cod_pedido,$id_usuario,$valor_pago){
+  $estado_pru = array ("estado" => $_POST['payment_status'],
+												"codpedido" => $cod_pedido,
+										   "idusuario" => $id_usuario,
+										 	 "value" => $valor_pago,
+									     "fecha" =>date("Y-m-d H:i:s") );
+  $id_trans_pru= $this->model_carrito->inserta_pru($estado_pru);
+  /*if($_POST['payment_status']=='Completed'){
+    log_message('error', "pago exitoso");
+    $pago=$this->model_carrito->buscaPedido($cod_pedido);
+
+    if ($pago->cod_pedido==$cod_pedido) {
+      $insertarPago=array(
+        'cod_pedido'=>$pago->cod_pedido,
+        'monto'=>$pago->monto,
+        'fecha_pago'=>date("Y-m-d H:i:s"),
+        'fecha_pedido'=>$pago->fecha_pedido,
+        'id_usuario'=> $pago->id_usuario,
+      );
+      $this->model_carrito->insertPago($insertarPago);
+    }
+  }else{
+
+  log_message('error', "error en el pago");
+}*/
 }
 
 }
-?>

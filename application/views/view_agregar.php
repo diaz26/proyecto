@@ -12,22 +12,31 @@
               <h3><b>Agregar productos</b></h3>
               <form action="<?=base_url(); ?>index.php/Productos/agregardeverdad/" method="post"  enctype="multipart/form-data">
                 <div class="row">
+                  <div class="input-group">
+                    <?php echo $this->session->flashdata('error'); ?>
+                  </div>
                   <div class="col-md-4 pr-md-1">
                     <div class="form-group">
                       <label><b>Nombre</b></label><br>
-                      <input type="text" class="form-control" name="Nombre" value="">
+                      <input type="text" class="form-control" name="Nombre" required>
                     </div>
                   </div>
-                  <div class="col-md-4 px-md-1">
+                  <div class="col-md-3 px-md-1">
                     <div class="form-group">
                       <label><b>Marca</b></label><br>
-                      <input type="text" class="form-control" name="Marca" value="">
+                      <input type="text" class="form-control" name="Marca" required>
                     </div>
                   </div>
-                  <div class="col-md-4 pl-md-1">
+                  <div class="col-md-2 px-md-1">
                     <div class="form-group">
-                      <label><b>Precio</b></label><br>
-                      <input type="number" class="form-control" name="Precio" value="">
+                      <label><b>Precio ($USD)</b></label><br>
+                      <input type="number" class="form-control" name="Precio" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 pl-md-1">
+                    <div class="form-group">
+                      <label><b>Categoria</b></label><br>
+                      <input type="text" class="form-control" name="categoria" required>
                     </div>
                   </div>
                 </div>
@@ -55,7 +64,7 @@
                       <div class="col-md-12 pr-md-1">
                         <div class="form-group">
                           <label><b>Descripcion:</b></label><br>
-                          <textarea name="Descripcion" class="form-control" rows="2" cols="80"></textarea>
+                          <textarea name="Descripcion" class="form-control" rows="2" cols="80" required></textarea>
                         </div>
                       </div>
                     </div>

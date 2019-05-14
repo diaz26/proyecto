@@ -12,7 +12,13 @@
               <div class="row">
                 <div class="col-lg-4 col-md-4 mr-auto ml-auto">
                   <div class="logo-footer">
-                    <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$head->logo; ?>" alt=""><span><?= $head->abreviacion; ?></span></a>
+                    <a class="navbar-brand" href="<?php
+                    if ($this->session->userdata('ROL')=='Cliente') {
+                      echo base_url()."index.php/cliente";
+                    }else {
+                      echo base_url()."index.php/admin";
+                    }
+                     ?>"> <img src="<?= base_url().$head->logo; ?>" alt=""><span><?= $head->abreviacion; ?></span></a>
                   </div>
                 </div>
                 <?php
@@ -20,13 +26,13 @@
 
                   ?>
                 <div class="col-lg-4 col-md-4 mr-auto ml-auto">
-                  <h5>Contact Info</h5>
+                  <h5>Informacion de contacto</h5>
                   <ul class="list-menu contact-list">
                     <li>
-                      <?= $head->correo_contact; ?>
+                      E-mail : <?= $head->correo_contact; ?>
                     </li>
                     <li>
-                      <?= $head->cel_contact; ?>
+                      Teléfono : <?= $head->cel_contact; ?>
                      </li>
                   </ul>
                 </div>
