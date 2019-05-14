@@ -31,8 +31,8 @@
                       <td class="text-center"><?php  echo $row->Nombre; ?> </td>
                       <td class="text-center"> <button type="button" style="text-align: center;width:100%;background-color: <?= $head->nav_bg; ?>;color: black" class="form-control" data-toggle="modal" data-target="#producto<?= $row->id; ?>">Ver</button> </td>
                       <td class="text-center"><?php  echo $row->Precio;?> $USD</td>
-                      <td class="text-center"><a href="<?= base_url()."index.php/productos/Editar/".$row->id;?>" style="text-align: center;width:100%;background-color: #0069d9;color: black " class="form-control" >modificar</a></td>
-                      <td class="text-center"><a href="<?= base_url()."index.php/productos/Eliminar/".$row->id;?>"  style="text-align: center;width:100%;background-color: #c82333;color: black " class="form-control" >eliminar</a></td>
+                      <td class="text-center"><a href="<?= base_url()."index.php/productos/Editar/".$row->id;?>" style="text-align: center;width:100%;background-color: #0069d9;color: black" class="form-control" >Modificar</a></td>
+                      <td class="text-center"><button type="button" style="background-color: red;border-color:red ;text-align: center;width:100%;color: black" class="form-control" data-toggle="modal" data-target="#eliminar<?= $row->id; ?>">Eliminar</button></td>
 
                       <div class="modal fade" id="producto<?= $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="z-index: 99999999;">
                         <div class="modal-dialog" role="document">
@@ -52,6 +52,24 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="eliminar<?= $row->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">¿Deseas eliminar el producto?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" style="text-align: center;width:50%;background-color: #C3C3C3;color: black" class="form-control" data-dismiss="modal">Close</button>
+                              <a href="<?= base_url()."index.php/productos/Eliminar/".$row->id;?>"  style="text-align: center;width:50%;background-color: #c82333;color: black" class="form-control">Eliminar</a>
                             </div>
                           </div>
                         </div>

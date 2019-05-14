@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:<?= $page->nav_bg; ?>">
       <div class="container" style="background-color:<?= $page->nav_bg; ?>">
 
-        <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$page->logo; ?>" alt="">
+        <a class="navbar-brand" href="<?= base_url(); ?>index.php/welcome/to/<?= $page->nombre; ?>"> <img src="<?= base_url().$page->logo; ?>" alt="">
           <span style="font-size: 16px;color:<?= $page->nav_color; ?>"><?= $page->nombre; ?></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

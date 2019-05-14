@@ -32,7 +32,6 @@ class Informacion extends CI_Controller {
 			if ($this->session->userdata('ROL')=='Cliente') {
 				$datos=array(
 					'nombres'=>$this->input->post('nombres'),
-					'apellidos'=>$this->input->post('apellidos'),
 					'cc'=>$this->input->post('cc'),
 					'ciudad'=>$this->input->post('ciudad'),
 					'direccion'=>$this->input->post('direccion'),

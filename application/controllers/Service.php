@@ -7,6 +7,7 @@ class Service extends CI_Controller {
     $this->load->model('model_header');
     $this->load->model('model_service');
     $this->load->model('model_login');
+    $this->load->model('model_informacion');
   }
 
   public function index()
@@ -38,34 +39,15 @@ class Service extends CI_Controller {
         );
         $id=$this->model_login->registrar($registro);
 
-        $urldeimagen							="/images/";
-        $config['upload_path'] 		= ".".$urldeimagen;
-        $file_name 								= md5(time()."-".rand(1,999));
-        $config['allowed_types'] 	= "gif|jpg|jpeg|png";
-        $config['file_name']      = $file_name;
+        $newpage = array(
+          'nombre' =>$this->input->post('page'),
+          'logo' =>'images/defecto.jpg',
+          'nav_bg'=>'#D9D7D7',
+          'nav_color'=>'#000000',
+          'body_bg'=>'#E7E7E7',
+          'id_usuario'=>$id,
+        );
 
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('logo')){
-          $dataCargada = $this->upload->data();
-          $newpage=array(
-            'nombre' =>$this->input->post('page'),
-            'id_usuario'=>$id,
-            'nav_bg'=>'#D9D7D7',
-            'nav_color'=>'#000000',
-            'body_bg'=>'#E7E7E7',
-            'logo'=> $urldeimagen.$dataCargada['file_name']
-          );
-        }else {
-          $newpage = array(
-            'nombre' =>$this->input->post('page'),
-            'logo' =>'images/defecto.jpg',
-            'nav_bg'=>'#D9D7D7',
-            'nav_color'=>'#000000',
-            'body_bg'=>'#E7E7E7',
-            'id_usuario'=>$id,
-          );
-        }
         $this->model_login->newPage($newpage);
         $session=array(
           'ID'=>$id,

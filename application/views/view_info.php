@@ -18,17 +18,9 @@
                     <div class="row">
                       <div class="col-md-8 pr-md-1" style="">
                         <div class="form-group">
-                          <label><b>Nombres:</b></label><br>
+                          <label><b>Nombre Completo:</b></label><br>
                           <input type="text" name="nombres" class="form-control" value="<?php echo $info->nombres; ?>" required>
                           <input type="hidden" name="id" class="form-control" value="<?php echo $info->id; ?>">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-8 pr-md-1" style="">
-                        <div class="form-group">
-                          <label><b>Apellidos:</b></label><br>
-                          <input type="text" name="apellidos" class="form-control" value="<?php echo $info->apellidos; ?>" required>
                         </div>
                       </div>
                     </div>

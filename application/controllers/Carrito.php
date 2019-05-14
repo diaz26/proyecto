@@ -182,9 +182,17 @@ public function insertPago($cod_pedido=NULL,$id_usuario=NULL,$valor_pago=NULL){
       'fecha_pago'=>date("Y-m-d H:i:s"),
       'fecha_pedido'=>$pago->fecha_pedido,
       'id_usuario'=> $pago->id_usuario,
+      'estado_pedido'=> 1,
     );
     $this->model_carrito->insertPago($insertarPago);
-    $arreglo[]=array();
+    $arreglo=$_SESSION['carrito'];
+    $numero=0;
+    for($i=0;$i<count($arreglo);$i++){
+      $numero=$i;
+    }
+    $arreglo[$numero]['Cantidad']=0;
+    unset($arreglo[$numero]);
+    $arreglo = array_values($arreglo);
     $_SESSION['carrito']=$arreglo;
   }
   $page=$this->model_informacion->consultPageX($id_usuario);

@@ -51,14 +51,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-8 pr-md-1" style="">
-                    <div class="form-group">
-                      <label><b>Video YouTube (opcional):</b></label><br>
-                      <input type="text" name="yt" class="form-control" value="<?php echo $page->yt; ?>">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
                   <div class="col-md-3 pr-md-1" style="">
                     <div class="form-group">
                       <label><b>Color del Menú:</b></label><br>

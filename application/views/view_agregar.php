@@ -30,7 +30,7 @@
                   <div class="col-md-2 px-md-1">
                     <div class="form-group">
                       <label><b>Precio ($USD)</b></label><br>
-                      <input type="number" class="form-control" name="Precio" required>
+                      <input type="number" step="any" class="form-control" name="Precio" required>
                     </div>
                   </div>
                   <div class="col-md-3 pl-md-1">

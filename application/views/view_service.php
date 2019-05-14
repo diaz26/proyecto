@@ -9,7 +9,7 @@
       <div class="slide-item">
         <div class="container">
           <div class="row hero-padd" style="padding-top: 100px">
-            <div class="col-md-5 col-12 col-sm-12">
+            <div class="col-md-6 col-12 col-sm-12" style="padding-left: 50px;padding-right: 50px">
               <div class="hero-text">
                 <center><h3 style="font-size:28px; padding-bottom: 7px"><?= $service->nombre; ?></h3>
                   <p><?= $service->descripcion; ?></p>
@@ -18,7 +18,7 @@
                   <a href="<?= base_url(); ?>payment/secure_s" class="form-control" style="text-align: center;width: 150px;color:<?= $head->color; ?> ;background-color: <?= $head->nav_bg; ?>"><?= $service->button; ?></a-->
                 </div>
               </div>
-              <div class="col-md-7 col-12 col-sm-12" style="padding-left: 50px;padding-right: 50px;background-color: #F7F7F7" >
+              <div class="col-md-6 col-12 col-sm-12" style="background-color: #F7F7F7" >
                 <form class="" action="<?= base_url(); ?>index.php/service/register" method="post" enctype="multipart/form-data">
                   <center><h5>Registro</h5></center>
                   <div class="row">
@@ -77,42 +77,16 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-6">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="form-group">
-                            <label>Nombre de la Página (Sin espacios)*</label>
-                            <input type="text" name="page" class="form-control" required>
-                          </div><!-- End .form-grousp -->
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="form-group">
-                            <label>Cuenta Paypal (acá recibirás tus pagos)*</label>
-                            <input type="email" name="paypal" class="form-control" required>
-                          </div><!-- End .form-group -->
-                        </div>
-                      </div>
+                      <div class="form-group">
+                        <label>Nombre de la Página (Sin espacios)*</label>
+                        <input type="text" name="page" class="form-control" required>
+                      </div><!-- End .form-grousp -->
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>Logo*</label>
-                        <img src="<?= base_url(); ?>images/defecto.jpg" width="20%" id="logo" alt="">
-                        <input type="file" style="" class="form-control" name="logo" id="upload">
-                        <script>
-                        document.getElementById("upload").onchange = function() {
-                          var reader = new FileReader(); //instanciamos el objeto de la api FileReader
-
-                          reader.onload = function(e) {
-                            document.getElementById("logo").src = e.target.result;
-                          };
-
-                          // read the image file as a data URL.
-                          reader.readAsDataURL(this.files[0]);
-                        };
-
-                        </script>
-                      </div><!-- End .col-sm-4 -->
+                        <label>Cuenta Paypal*</label>
+                        <input type="email" name="paypal" class="form-control" required>
+                      </div><!-- End .form-group -->
                     </div>
                   </div>
                   <div class="row" style="padding-bottom: 10px">
