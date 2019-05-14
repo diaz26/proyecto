@@ -53,6 +53,7 @@ class Model_productos extends CI_Model {
 
   public function agregar($agregados){
     $this->db->insert('baseo_productos',$agregados);
+    return $this->db->insert_id();
   }
 
 }

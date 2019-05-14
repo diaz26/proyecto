@@ -21,10 +21,10 @@
                 <form action="<?= base_url(); ?>index.php/login/validar" method="post">
 
                   <div class="form-group">
-                    <center><input style="width:50%;text-align: center" type="text" name="user" class="form-control" placeholder="User" required></center>
+                    <center><input style="width:50%;text-align: center" type="text" name="user" class="form-control" placeholder="E-mail" required></center>
                   </div>
                   <div class="form-group">
-                    <center><input style="width:50%;text-align: center" type="password" name="pass" class="form-control" placeholder="Password" required></center>
+                    <center><input style="width:50%;text-align: center" type="password" name="pass" class="form-control" placeholder="Contraseña" required></center>
                   </div>
                   <div class="form-group">
                     <center><input type="submit" class="form-control" value="Ingresar" style="width:35%;background-color: <?= $head->nav_bg; ?>"></center>
