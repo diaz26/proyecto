@@ -34,6 +34,7 @@ class Service extends CI_Controller {
           'direccion'=>$this->input->post('direccion'),
           'fecha_registro'=>date("Y-m-d H:i:s"),
           'rol'=>'Cliente',
+          'cod_user'=>$this->genera_cod_user(),
         );
         $id=$this->model_login->registrar($registro);
 
@@ -50,12 +51,18 @@ class Service extends CI_Controller {
           $newpage=array(
             'nombre' =>$this->input->post('page'),
             'id_usuario'=>$id,
+            'nav_bg'=>'#D9D7D7',
+            'nav_color'=>'#000000',
+            'body_bg'=>'#E7E7E7',
             'logo'=> $urldeimagen.$dataCargada['file_name']
           );
         }else {
           $newpage = array(
             'nombre' =>$this->input->post('page'),
             'logo' =>'images/defecto.jpg',
+            'nav_bg'=>'#D9D7D7',
+            'nav_color'=>'#000000',
+            'body_bg'=>'#E7E7E7',
             'id_usuario'=>$id,
           );
         }
@@ -74,5 +81,18 @@ class Service extends CI_Controller {
         redirect("service");
       }
     }
+  }
+  public function genera_cod_user(){
+    #cosulta consecutivo
+    $consecutivo= $this->model_informacion->consultConsec(1);
+    $data_update = array("pr900"	=> $consecutivo+1,);
+    $this->model_informacion->alteraConsec($data_update);
+    //Genera número de pedido
+    $cod_pedido ="COD_USER".$this->generateRandomString(6).$consecutivo;
+    return $cod_pedido;
+  }
+
+  function generateRandomString($length) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
   }
 }

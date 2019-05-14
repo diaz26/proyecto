@@ -34,7 +34,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Contraseña*</label>
-                        <input type="text" name="pass" class="form-control" required>
+                        <input type="password" name="pass" class="form-control" required>
                       </div><!-- End .form-group -->
                     </div><!-- End .col-sm-4 -->
                   </div>
@@ -42,13 +42,13 @@
                     <div class="col-sm-8">
                       <div class="form-group">
                         <label>Nombre completo*</label>
-                        <input type="text"  name="nombres" class="form-control" required>
+                        <input type="text" name="nombres" class="form-control" required>
                       </div><!-- End .form-group -->
                     </div><!-- End .col-sm-4 -->
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Cédula de ciudadanía*</label>
-                        <input type="text" name="cc" class="form-control" required>
+                        <input type="number" name="cc" class="form-control" required>
                       </div><!-- End .form-group -->
                     </div><!-- End .col-sm-4 -->
                   </div>
@@ -62,7 +62,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Celular*</label>
-                        <input type="text" name="celular" class="form-control" required>
+                        <input type="number" name="celular" class="form-control" required>
                       </div><!-- End .form-group -->
                     </div><!-- End .col-sm-4 -->
                   </div>
