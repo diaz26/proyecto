@@ -10,12 +10,16 @@
           <div class="row hero-padd">
             <div class="col-md-9 col-12 col-sm-6 mr-auto ml-auto">
               <div class="row">
+                <div class="input-group">
+                  <?php echo $this->session->flashdata('error'); ?>
+                </div>
                 <?php
                 $suma=0;
                 foreach ($productos as $key) {
                   ?>
                   <form class="" action="<?php echo base_url(); ?>index.php/carrito/agrega_item_carrito" method="get">
                   <div class="col-md-4">
+
                     <div class="card" style="width: 16rem;">
                       <div class="card-body">
                         <center><h5 class="card-title"><?php echo $key->Nombre; ?></h5></center>

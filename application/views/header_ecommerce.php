@@ -47,7 +47,7 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto" style="background-color:<?= $page->nav_bg; ?>">
             <li class="nav-item">
-              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/cliente"><span style="font-size: 16px;color:<?= $page->nav_color; ?>">Carrito</span></a>
+              <a data-scroll="" class="nav-link section-scroll" href="<?= base_url(); ?>index.php/carrito/carga_carrito/<?= $page->nombre; ?>"><span style="font-size: 16px;color:<?= $page->nav_color; ?>">Carrito</span></a>
             </li>
           </ul>
 

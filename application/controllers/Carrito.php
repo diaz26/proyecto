@@ -63,11 +63,13 @@ class Carrito extends CI_Controller {
         $precio=0;
         $urlimagen="";
         $producto=$this->model_carrito->con_carrito_pro($_GET['id']);
+        $idd=$producto->id;
         $nombre=$producto->nombre;
         $precio=$producto->precio;
         $urlimagen=$producto->foto;
         //$descuento=$producto->descuento;
         $datosNuevos=array('Id'=>$_GET['id'],
+        'id_pr'=>$idd,
         'Nombre'=>$nombre,
         'Precio'=>$precio,
         'Cantidad'=>1,
@@ -85,11 +87,13 @@ class Carrito extends CI_Controller {
       $urlimagen="";
       $producto=$this->model_carrito->con_carrito_pro($_GET['id']);
       $nombre=$producto->nombre;
+      $idd=$producto->id;
       $precio=$producto->precio;
       $urlimagen=$producto->foto;
       //$descuento=$producto->descuento;
       $arreglo[]=array('Id'=>$_GET['id'],
       'Nombre'=>$nombre,
+      'id_pr'=>$idd,
       'Precio'=>$precio,
       'Cantidad'=>1,
       'Urlimagen'=>$urlimagen,
@@ -107,10 +111,19 @@ public function generapedido(){
 
   if ($cant_pro>0){
     if($valor_pago>0){
-
-
-
       $cadena_seguridad=$this->genera_cod_pedido();
+
+      if(isset($_SESSION['carrito'])){
+        $datos=$_SESSION['carrito'];
+        for($i=0;$i<count($datos);$i++){
+          $add = array(
+            'id_producto' => $datos[$i]['id_pr'],
+            'cod_pedido' => $cadena_seguridad,
+            'cantidad' => $datos[$i]['Cantidad'],
+          );
+          $this->model_carrito->insertItem($add);
+        }
+      }
       $id_user=$this->model_informacion->idUser($this->input->post('id_page'));
       $data_pedido = array(
         "nombre" 		 => $_POST["nombre"],
@@ -160,31 +173,22 @@ function generateRandomString($length) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
 
-public function insertPago($cod_pedido,$id_usuario,$valor_pago){
-  $estado_pru = array ("estado" => $_POST['payment_status'],
-												"codpedido" => $cod_pedido,
-										   "idusuario" => $id_usuario,
-										 	 "value" => $valor_pago,
-									     "fecha" =>date("Y-m-d H:i:s") );
-  $id_trans_pru= $this->model_carrito->inserta_pru($estado_pru);
-  /*if($_POST['payment_status']=='Completed'){
-    log_message('error', "pago exitoso");
-    $pago=$this->model_carrito->buscaPedido($cod_pedido);
-
-    if ($pago->cod_pedido==$cod_pedido) {
-      $insertarPago=array(
-        'cod_pedido'=>$pago->cod_pedido,
-        'monto'=>$pago->monto,
-        'fecha_pago'=>date("Y-m-d H:i:s"),
-        'fecha_pedido'=>$pago->fecha_pedido,
-        'id_usuario'=> $pago->id_usuario,
-      );
-      $this->model_carrito->insertPago($insertarPago);
-    }
-  }else{
-
-  log_message('error', "error en el pago");
-}*/
+public function insertPago($cod_pedido=NULL,$id_usuario=NULL,$valor_pago=NULL){
+  $pago=$this->model_carrito->buscaPedido($cod_pedido);
+  if ($pago->cod_pedido==$cod_pedido) {
+    $insertarPago=array(
+      'cod_pedido'=>$pago->cod_pedido,
+      'monto'=>$pago->monto,
+      'fecha_pago'=>date("Y-m-d H:i:s"),
+      'fecha_pedido'=>$pago->fecha_pedido,
+      'id_usuario'=> $pago->id_usuario,
+    );
+    $this->model_carrito->insertPago($insertarPago);
+    $arreglo[]=array();
+    $_SESSION['carrito']=$arreglo;
+  }
+  $page=$this->model_informacion->consultPageX($id_usuario);
+  redirect("welcome/to/$page",  'refresh');
 }
 
 }

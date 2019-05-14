@@ -9,8 +9,27 @@
       <div class="slide-item">
         <div class="container">
 
-      
+          <div class="row hero-padd">
 
+            <div class="col-md-6 col-12 col-sm-6">
+
+              <div class="hero-text">
+
+                <h2><?= $service->nombre; ?></h2>
+
+                <p><?= $service->descripcion; ?></p>
+
+                <p><?= $service->valor_text; ?> <span style="color:black ; font-size: 25px" ><?= $service->valor; ?>$ USD</span> </p>
+
+                <a href="<?= base_url(); ?>payment/secure_s" class="form-control" style="text-align: center;width: 150px;color:<?= $head->color; ?> ;background-color: <?= $head->nav_bg; ?>"><?= $service->button; ?></a>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-6 col-12 col-sm-6">
+              <img src="<?= base_url().$service->img; ?>" alt="" class="img-width">
+            </div>
 
           </div>
         </div>

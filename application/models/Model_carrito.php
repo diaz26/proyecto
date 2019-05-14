@@ -9,7 +9,7 @@ class Model_carrito extends CI_Model {
   }
 
   function con_carrito_pro($id= NULL){
-    $sql = "SELECT bp.cod_producto AS codigo, bp.Precio AS precio, bp.Nombre AS nombre, bp.Imagen AS foto
+    $sql = "SELECT bp.id as id, bp.cod_producto AS codigo, bp.Precio AS precio, bp.Nombre AS nombre, bp.Imagen AS foto
     from baseo_productos bp WHERE bp.cod_producto='$id'";
     $query = $this->db->query($sql);
     return $query->row();
@@ -23,6 +23,11 @@ class Model_carrito extends CI_Model {
 
   public function insertaPedido($new_pedido){
     $this->db->insert('baseo_pedidos',$new_pedido);
+    return $this->db->insert_id();
+  }
+
+  public function insertItem($new_pedido){
+    $this->db->insert('productos_pedidos',$new_pedido);
     return $this->db->insert_id();
   }
 
