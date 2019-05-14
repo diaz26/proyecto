@@ -28,6 +28,56 @@ class Productos extends CI_Controller {
     }
   }
 
+  public function categoria($ban=NULL,$flag=NULL)
+  {
+    if (($ban!=NULL) && ($flag!=NULL)) {
+      $headd=$this->model_informacion->consultPageO($ban);
+      if (!empty($headd)) {
+        if ($headd->nombre==$ban) {
+          $head['page']=$this->model_informacion->consultPageO($ban);
+          $head['head']=$this->model_header->consultOficial(1);
+          $result['productos']=$this->model_productos->ProductosOC($ban,$flag);
+          $result['categ']=$this->model_productos->categorias($ban);
+          $this->load->view('header_ecommerce',$head);
+          $this->load->view('view_ecommerce',$result);
+          $this->load->view('footer_ecommerce',$head);
+        }else {
+          $this->load->view('error_page');
+        }
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      $this->load->view('error_page');
+    }
+  }
+
+  public function buscar($ban=NULL)
+  {
+    if (isset($_POST['search'])) {
+      $headd=$this->model_informacion->consultPageO($ban);
+      if (!empty($headd)) {
+        if ($headd->nombre==$ban) {
+          $head['page']=$this->model_informacion->consultPageO($ban);
+          $head['head']=$this->model_header->consultOficial(1);
+          $flag=$this->input->post('search');
+          $result['productos']=$this->model_productos->buscar($ban,$flag);
+          $result['categ']=$this->model_productos->categorias($ban);
+          $this->load->view('header_ecommerce',$head);
+          $this->load->view('view_ecommerce',$result);
+          $this->load->view('footer_ecommerce',$head);
+        }else {
+          $this->load->view('error_page');
+        }
+      }else {
+        $this->load->view('error_page');
+      }
+    }
+    else {
+      redirect("Welcome/to/$ban",'refresh');
+    }
+  }
+
   public function Editar($id){
     if ($this->session->userdata('logged_in')) {
 
