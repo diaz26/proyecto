@@ -107,7 +107,11 @@ public function generapedido(){
 
   if ($cant_pro>0){
     if($valor_pago>0){
-      $cadena_seguridadt=$this->genera_cod_pedido();
+
+      
+
+      $cadena_seguridad=$this->genera_cod_pedido();
+      $id_user=$this->model_informacion->idUser($this->input->post('id_page'));
       $data_pedido = array(
         "nombre" 		 => $_POST["nombre"],
         "correo" 	     		=> $_POST["correo"],
@@ -119,16 +123,15 @@ public function generapedido(){
         "fecha_pedido" 	=> date("Y-m-d H:i:s"),
         "cod_pedido"		 		=> $cadena_seguridad,
         "monto"		 		=> $_POST["valorpago"],
-        "pageee"		 		=> $_POST["page"],
+        "id_usuario" 	=> $id_user->id,
 
       );
       $this->model_carrito->insertaPedido($data_pedido);
-      $id_user=$this->model_informacion->idUser($this->input->post('id_page'));
       $pedido=array(
-        "id_usuario" 	=> $id_user->id,
         "valor_pago" 	=> $_POST["valorpago"],
         "moneda" 	=> "USD",
         "nombre_producto" 	=> "Factura",
+        "pageee"		 		=> $_POST["page"],
       );
       //	$id_pedido=$this->model_payments->inserta_pago_pedido($pedido);
       $cuenta_paypal=$this->model_informacion->consul_cuenta_paypal($this->input->post('id_page'));
@@ -170,7 +173,7 @@ public function insertPago($cod_pedido,$id_usuario,$valor_pago){
         'fecha_pedido'=>$pago->fecha_pedido,
         'id_usuario'=> $pago->id_usuario,
       );
-      $this->model_carrito->insertPago($insertPago);
+      $this->model_carrito->insertPago($insertarPago);
     }
   }else{
 

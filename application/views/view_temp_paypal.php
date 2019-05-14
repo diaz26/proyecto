@@ -5,7 +5,9 @@ if (1==1){
   //URL Paypal Modo pruebas.
   //$paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
   //URL Paypal para Recibir pagos
-  $paypal_url = 'https://www.paypal.com/cgi-bin/webscr';
+
+  $paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+  //$paypal_url = 'https://www.paypal.com/cgi-bin/webscr';
   //Correo electronico del comercio.
   //Pon aqui la URL para redireccionar cuando el pago es completado
   $cancel_return = base_url()."index.php/welcome/to/$pageee"; //."index.php/payments/reparte/".$cod_pedido."/".$id_usuario."/".$valor_pago; //$codpedido,$idusuario,$value
