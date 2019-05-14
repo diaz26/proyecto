@@ -18,25 +18,88 @@
 
           <div class="row hero-padd">
 
-            <div class="col-md-6 col-12 col-sm-6">
+            <div class="col-md-10 col-12 ml-auto mr-auto">
+              <h3><b>Formulario Servicios</b></h3>
+              <form action="" method="post"  enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-4 pr-md-1">
+                    <div class="form-group">
+                      <label><b>Usuario</b></label><br>
+                      <input type="text" class="form-control" name="usuario" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-4 px-md-1">
+                    <div class="form-group">
+                      <label><b>Contaseña</b></label><br>
+                      <input type="password" class="form-control" name="password" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-4 pl-md-1">
+                    <div class="form-group">
+                      <label><b>nombre</b></label><br>
+                      <input type="text" class="form-control" name="nombre" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-4 pl-md-1">
+                    <div class="form-group">
+                      <label><b>apellido</b></label><br>
+                      <input type="text" class="form-control" name="apellido" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-5 pr-md-1">
+                    <div class="form-group">
+                        <img src="<?= base_url().$service->img; ?>" alt="" class="img-width">
+                    </div>
+                  </div>
+                  <div class="col-md-7 pl-md-1">
+                    <div class="row">
+                      <div class="col-md-12 pr-md-1">
+                        <div class="form-group">
+                          <label><b>Cedula:</b></label><br>
+                          <input type="number" class="form-control" name="cedula" value="">
+                        </div>
+                      </div>
+                    </div>
 
-              <div class="hero-text">
+                    <div class="row">
+                      <div class="col-md-12 pr-md-1">
+                        <div class="form-group">
+                          <label><b>Direccion:</b></label><br>
+                          <input type="text" class="form-control" name="direccion" value="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 pr-md-1">
+                        <div class="form-group">
+                          <label><b>Email:</b></label><br>
+                          <input type="Email" class="form-control" name="email" value="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 pr-md-1">
+                        <div class="form-group">
+                          <label><b>E-comerce:</b></label><br>
+                          <input type="text" class="form-control" name="comerce" value="">
+                        </div>
+                      </div>
+                    </div>
 
-                <h2><?= $service->nombre; ?></h2>
-
-                <p><?= $service->descripcion; ?></p>
-
-                <p><?= $service->valor_text; ?> <span style="color:black ; font-size: 25px" ><?= $service->valor; ?>$ USD</span> </p>
-
-                <a href="<?= base_url(); ?>payment/secure_s" class="form-control" style="text-align: center;width: 150px;color:<?= $head->color; ?> ;background-color: <?= $head->nav_bg; ?>"><?= $service->button; ?></a>
-
-              </div>
-
+                    <div class="row">
+                      <div class="col-md-12 pr-md-1">
+                        <br>
+                        <center><input type="submit" value="Servicio" style="width:150px;background-color:<?php echo $head->nav_bg; ?>" class="form-control"></center>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
 
-            <div class="col-md-6 col-12 col-sm-6">
-              <img src="<?= base_url().$service->img; ?>" alt="" class="img-width">
-            </div>
+
 
           </div>
 
