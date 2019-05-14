@@ -31,12 +31,13 @@ CREATE TABLE `baseo_ecommerce` (
   `id_usuario` int(11) DEFAULT NULL,
   `yt` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_ecommerce` */
 
 insert  into `baseo_ecommerce`(`id`,`logo`,`nombre`,`descripcion`,`nav_bg`,`nav_color`,`body_bg`,`id_usuario`,`yt`) values 
-(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#002BFE','#FFFFFF','#E7E7E7',2,'https://www.youtube.com/embed/X58QHeShoS4');
+(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#002BFE','#FFFFFF','#E7E7E7',2,'https://www.youtube.com/embed/X58QHeShoS4'),
+(2,'images/defecto.jpg','YoGoogle',NULL,'#D9D7D7','#000000','#E7E7E7',4,NULL);
 
 /*Table structure for table `baseo_oficial` */
 
@@ -45,7 +46,7 @@ DROP TABLE IF EXISTS `baseo_oficial`;
 CREATE TABLE `baseo_oficial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `correo_contact` varchar(100) DEFAULT NULL,
-  `cel_contact` int(11) DEFAULT NULL,
+  `cel_contact` double DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `nombre` varchar(60) DEFAULT NULL,
   `abreviacion` varchar(15) DEFAULT NULL,
@@ -73,7 +74,7 @@ CREATE TABLE `baseo_oficial` (
 /*Data for the table `baseo_oficial` */
 
 insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`,`sec_text`,`pr900`) values 
-(1,'support@baseo.com',2147483647,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#40FA5A','Home','Products','Service','Login','#000000','Lato, sans-serif',16,'buscar...','Welcome to BASEO','BASEO is a platform that offers the sales service in which you can manage your products and sell online.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','SEO','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam  explicabo.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',1);
+(1,'soporte_oficial_baseo@outlook.com',3165337090,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#40FA5A','Home','Products','Service','Login','#000000','Lato, sans-serif',16,'buscar...','Welcome to BASEO','Baseo es una plataforma que ofrece el servicio de ventas en el que puede administrar sus productos y vender en línea.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','SEO','Se trata de una plataforma donde puedes configurar tus productos así como algunos estilos de tu plantilla ecommerce donde tus clientes podran hacer pedido de tus productos en linea.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',8);
 
 /*Table structure for table `baseo_pagos` */
 
@@ -86,6 +87,7 @@ CREATE TABLE `baseo_pagos` (
   `fecha_pago` datetime DEFAULT NULL,
   `fecha_pedido` datetime DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
+  `estado_pedido` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,9 +111,17 @@ CREATE TABLE `baseo_pedidos` (
   `fecha_pedido` datetime DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_pedidos` */
+
+insert  into `baseo_pedidos`(`id`,`correo`,`nombre`,`celular`,`cedula`,`direccion`,`departamento`,`ciudad`,`monto`,`cod_pedido`,`fecha_pedido`,`id_usuario`) values 
+(1,'jeffreydiazaya@outlook.com','Jeff Diaz',3165337090,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',3,'COD_PEDAYEWzd2','2019-05-13 19:32:57',NULL),
+(2,'jeffreydiazaya@outlook.com','Jeff Diaz',3165337090,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',3,'COD_PEDV8hsec3','2019-05-13 19:34:24',NULL),
+(3,'pipe@gmail.com','Pipe Garzon',3184337943,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',2,'COD_PEDT8QFuV4','2019-05-13 19:43:01',2),
+(4,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',4,'COD_PEDEV3ivX5','2019-05-13 19:49:13',2),
+(5,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',7,'COD_PEDX63pmY6','2019-05-13 19:54:31',2),
+(6,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',7,'COD_PEDoRTFLy7','2019-05-13 19:54:55',2);
 
 /*Table structure for table `baseo_productos` */
 
@@ -128,13 +138,13 @@ CREATE TABLE `baseo_productos` (
   `categoria` varchar(50) DEFAULT NULL,
   `cod_producto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_productos` */
 
 insert  into `baseo_productos`(`id`,`Nombre`,`Marca`,`Descripcion`,`Imagen`,`Precio`,`id_dueno`,`categoria`,`cod_producto`) values 
 (8,'jeff','hmano','un chico guapo','/images/fd3267dfb7cd8de24826dcf6cff509d8.jpg',65465456.00,3,NULL,'PRO1'),
-(9,'Arroz','Roa','Arroz Roa purificado 1 libra','/images/f338cea8d9913e92faf960eb64cb22f0.jpeg',1.00,2,'grano','PRO2');
+(11,'Moto Endur','hmano','h',NULL,55.00,2,NULL,NULL);
 
 /*Table structure for table `baseo_service` */
 
@@ -155,7 +165,7 @@ CREATE TABLE `baseo_service` (
 /*Data for the table `baseo_service` */
 
 insert  into `baseo_service`(`id`,`nombre`,`descripcion`,`valor`,`dias`,`img`,`button`,`valor_text`) values 
-(1,'Administra tus productos','Con este servicio podrás administrar tus productos y venderlos en linea evitando los costos que implica tener tu propia página web',50.00,60,'/images/1a5935f35e06c61a4db0e6515730c732.jpg','Adquirir','Valor ');
+(1,'Regístrate y disfruta de nuestro servicio','Con este servicio podrás administrar tus productos y venderlos en linea evitando los costos que implica tener tu propia página web',50.00,60,'/images/1a5935f35e06c61a4db0e6515730c732.jpg','Adquirir','Valor ');
 
 /*Table structure for table `baseo_usuarios` */
 
@@ -163,31 +173,27 @@ DROP TABLE IF EXISTS `baseo_usuarios`;
 
 CREATE TABLE `baseo_usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` varchar(50) DEFAULT NULL,
   `pass` varchar(100) DEFAULT NULL,
   `rol` varchar(15) DEFAULT NULL,
   `cod_user` varchar(100) DEFAULT NULL,
   `nombres` varchar(50) DEFAULT NULL,
-  `apellidos` varchar(50) DEFAULT NULL,
   `cc` int(11) DEFAULT NULL,
   `direccion` varchar(60) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `ciudad` varchar(30) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
-  `facebook` varchar(255) DEFAULT NULL,
-  `img_perfil` varchar(255) DEFAULT NULL,
-  `ultima_actividad` datetime DEFAULT NULL,
   `celular` double DEFAULT NULL,
   `paypal` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_usuarios` */
 
-insert  into `baseo_usuarios`(`id`,`user`,`pass`,`rol`,`cod_user`,`nombres`,`apellidos`,`cc`,`direccion`,`email`,`ciudad`,`fecha_registro`,`facebook`,`img_perfil`,`ultima_actividad`,`celular`,`paypal`) values 
-(1,'jeff26','123','Admin','JEFFD','Jeff','Díaz',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-03-27 17:14:21',NULL,NULL,NULL,NULL,NULL),
-(2,'jeff','jda','Cliente','JJJJ','Jeffrey','Díaz Aya',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-04-14 15:58:34',NULL,NULL,NULL,3165337090,'jeffreydiazaya@outlook.com'),
-(3,'pipe','123','Cliente','AAAAA','Pipe','Garzon',123423424,NULL,'pipe@gmail.com','Neiva','2019-04-30 10:53:08',NULL,NULL,NULL,NULL,NULL);
+insert  into `baseo_usuarios`(`id`,`pass`,`rol`,`cod_user`,`nombres`,`cc`,`direccion`,`email`,`ciudad`,`fecha_registro`,`celular`,`paypal`) values 
+(1,'123','Admin','JEFFD','Jeff',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-03-27 17:14:21',NULL,NULL),
+(2,'jda','Cliente','JJJJ','Jeffrey',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-04-14 15:58:34',3165337090,'leo_empresas@gmail.com'),
+(3,'123','Cliente','AAAAA','Pipe',123423424,NULL,'pipe@gmail.com','Neiva','2019-04-30 10:53:08',NULL,'jeffreydiazaya@outlook.com'),
+(4,'aaa','Cliente',NULL,'Novelly',122211,'Calle 71 A','jeff@gmail.com','Neiva','2019-05-14 00:24:09',3134863691,'jeffreydiaz@outlook.com');
 
 /*Table structure for table `productos_pedidos` */
 
