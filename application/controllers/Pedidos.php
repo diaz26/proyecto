@@ -19,6 +19,7 @@ class Pedidos extends CI_Controller {
 				$result['page']=$this->model_informacion->consultPage();
         $result['pedidosP']=$this->model_empresa->consultPedidosP($this->session->userdata('ID'));
         $result['pedidosD']=$this->model_empresa->consultPedidosD($this->session->userdata('ID'));
+				$result['products']=$this->model_empresa->productosPedidos();
 				$this->load->view('header_loged',$header);
 				$this->load->view('view_pedidos',$result);
 				$this->load->view('footer_loged');

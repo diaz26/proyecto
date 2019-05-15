@@ -218,6 +218,26 @@ class Productos extends CI_Controller {
     }
   }
 
+  public function despachar($cod){
+    if ($this->session->userdata('logged_in')) {
+
+      if($this->session->userdata('ROL')=='Cliente'){
+
+        $id_dueno=$this->session->userdata('ID');
+        $num=$this->model_productos->verifica_priedadDE($cod);
+        if ($id_dueno==$num) {
+          $arr = array('estado_pedido' => 2, );
+          $this->model_productos->despachar($arr,$cod);
+        }
+        redirect("Pedidos",'refresh');
+      }else {
+        $this->load->view('error_page');
+      }
+    }else {
+      redirect("login");
+    }
+  }
+
   public function genera_cod_pro(){
     #cosulta consecutivo
     $consecutivo= $this->model_informacion->consultConsec(1);

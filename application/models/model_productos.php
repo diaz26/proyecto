@@ -64,9 +64,21 @@ class Model_productos extends CI_Model {
     $this->db->delete('baseo_productos');
   }
 
+  public function despachar($arr,$cod){
+    $this->db->where('cod_pedido',$cod);
+    $this->db->update('baseo_pagos',$arr);
+  }
+
   public function agregar($agregados){
     $this->db->insert('baseo_productos',$agregados);
     return $this->db->insert_id();
   }
+
+  public function verifica_priedadDE($cod){
+    $sql= "SELECT id_usuario from baseo_pagos where cod_pedido='$cod'";
+    $query=$this->db->query($sql);
+    return $query->row()->id_usuario;
+  }
+
 
 }
