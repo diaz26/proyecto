@@ -36,7 +36,7 @@ CREATE TABLE `baseo_ecommerce` (
 /*Data for the table `baseo_ecommerce` */
 
 insert  into `baseo_ecommerce`(`id`,`logo`,`nombre`,`descripcion`,`nav_bg`,`nav_color`,`body_bg`,`id_usuario`,`yt`) values 
-(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#002BFE','#FFFFFF','#E7E7E7',2,'https://www.youtube.com/embed/X58QHeShoS4'),
+(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#0033FE','#FFFFFF','#E7E7E7',2,''),
 (2,'images/defecto.jpg','YoGoogle',NULL,'#D9D7D7','#000000','#E7E7E7',4,NULL),
 (3,'images/defecto.jpg','Avvv',NULL,'#D9D7D7','#000000','#E7E7E7',5,NULL);
 
@@ -75,7 +75,7 @@ CREATE TABLE `baseo_oficial` (
 /*Data for the table `baseo_oficial` */
 
 insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`,`sec_text`,`pr900`) values 
-(1,'soporte_oficial_baseo@outlook.com',3165337090,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#40FA5A','Inicio','Products','Servicio','Ingresar','#000000','Lato, sans-serif',16,'buscar...','Welcome to BASEO','Baseo es una plataforma que ofrece el servicio de ventas en el que puede administrar sus productos y vender en línea.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','BASEO','Se trata de una plataforma donde puedes configurar tus productos así como algunos estilos de tu plantilla ecommerce donde tus clientes podran hacer pedido de tus productos en linea.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',30);
+(1,'soporte_oficial_baseo@outlook.com',3165337090,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#40FA5A','Inicio','Products','Servicio','Ingresar','#000000','Lato, sans-serif',16,'buscar...','Welcome to BASEO','Baseo es una plataforma que ofrece el servicio de ventas en el que puede administrar sus productos y vender en línea.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','BASEO','Se trata de una plataforma donde puedes configurar tus productos así como algunos estilos de tu plantilla ecommerce donde tus clientes podran hacer pedido de tus productos en linea.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',35);
 
 /*Table structure for table `baseo_pagos` */
 
@@ -90,13 +90,18 @@ CREATE TABLE `baseo_pagos` (
   `id_usuario` int(11) DEFAULT NULL,
   `estado_pedido` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_pagos` */
 
 insert  into `baseo_pagos`(`id`,`cod_pedido`,`monto`,`fecha_pago`,`fecha_pedido`,`id_usuario`,`estado_pedido`) values 
-(1,'COD_PEDdnOHoC22',50,'2019-05-14 16:23:09','2019-05-14 16:22:44',2,1),
-(2,'COD_PEDGTWeLU28',30,'2019-05-14 17:41:52','2019-05-14 17:39:03',2,1);
+(1,'COD_PEDdnOHoC22',50,'2019-05-14 16:23:09','2019-05-14 16:22:44',2,2),
+(2,'COD_PEDGTWeLU28',30,'2019-05-14 17:41:52','2019-05-14 17:39:03',2,1),
+(3,'COD_PEDLd29Qc30',50,'2019-05-14 20:05:56','2019-05-14 20:03:45',2,2),
+(4,'COD_PED1NkbtX31',42,'2019-05-15 12:32:58','2019-05-15 12:29:25',2,2),
+(5,'COD_PEDTuCz6l32',72,'2019-05-15 12:59:44','2019-05-15 12:34:27',2,1),
+(6,'COD_PEDGaLuI533',20,'2019-05-15 13:01:05','2019-05-15 13:00:19',2,1),
+(7,'COD_PEDV93ML834',132,'2019-05-15 13:07:37','2019-05-15 13:01:42',2,1);
 
 /*Table structure for table `baseo_pedidos` */
 
@@ -116,12 +121,17 @@ CREATE TABLE `baseo_pedidos` (
   `fecha_pedido` datetime DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_pedidos` */
 
 insert  into `baseo_pedidos`(`id`,`correo`,`nombre`,`celular`,`cedula`,`direccion`,`departamento`,`ciudad`,`monto`,`cod_pedido`,`fecha_pedido`,`id_usuario`) values 
-(22,'support@cathefitness.com','Novelly',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',30,'COD_PEDGTWeLU28','2019-05-14 17:39:03',2);
+(22,'support@cathefitness.com','Novelly',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',30,'COD_PEDGTWeLU28','2019-05-14 17:39:03',2),
+(23,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',50,'COD_PEDLd29Qc30','2019-05-14 20:03:45',2),
+(24,'support@cathefitness.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',42,'COD_PED1NkbtX31','2019-05-15 12:29:25',2),
+(25,'support@cathefitness.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',72,'COD_PEDTuCz6l32','2019-05-15 12:34:27',2),
+(26,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',20,'COD_PEDGaLuI533','2019-05-15 13:00:19',2),
+(27,'support@cathefitness.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',132,'COD_PEDV93ML834','2019-05-15 13:01:42',2);
 
 /*Table structure for table `baseo_productos` */
 
@@ -208,7 +218,7 @@ CREATE TABLE `productos_pedidos` (
   `cod_pedido` varchar(100) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `productos_pedidos` */
 
@@ -235,7 +245,18 @@ insert  into `productos_pedidos`(`id`,`id_producto`,`cod_pedido`,`cantidad`) val
 (20,13,'COD_PEDdnOHoC22',1),
 (21,12,'COD_PEDsM8tYQ26',1),
 (22,12,'COD_PEDJ4aP0727',1),
-(23,12,'COD_PEDGTWeLU28',1);
+(23,12,'COD_PEDGTWeLU28',1),
+(24,13,'COD_PEDLd29Qc30',1),
+(25,12,'COD_PEDLd29Qc30',1),
+(26,16,'COD_PED1NkbtX31',2),
+(27,13,'COD_PED1NkbtX31',1),
+(28,16,'COD_PEDTuCz6l32',2),
+(29,13,'COD_PEDTuCz6l32',1),
+(30,12,'COD_PEDTuCz6l32',1),
+(31,13,'COD_PEDGaLuI533',1),
+(32,16,'COD_PEDV93ML834',2),
+(33,13,'COD_PEDV93ML834',1),
+(34,12,'COD_PEDV93ML834',3);
 
 /*Table structure for table `prueba_pago` */
 
