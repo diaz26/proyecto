@@ -2,6 +2,25 @@
 <html lang="en">
 <head>
 </head>
+<script type="text/javascript">
+  function validarPasswd(){
+    var p1 = document.getElementById("pwd1").value;
+    var espacios = false;
+    var cont = 0;
+
+    while (!espacios && (cont < p1.length)) {
+      if (p1.charAt(cont) == " ")
+      espacios = true;
+      cont++;
+    }
+
+    if (espacios) {
+      alert ("El nombre de la página no puede contener espacios en blanco");
+      return false;
+    }
+  }
+
+</script>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
   <section class="hero" id="informacion">
     <div class="slide-home">
@@ -11,7 +30,7 @@
             <div class="col-md-10 col-12 ml-auto mr-auto">
               <h3><b>Configurar Página</b></h3>
               <hr>
-              <form action="<?= base_url() ?>index.php/pagina/modPage" method="post" enctype="multipart/form-data">
+              <form action="<?= base_url() ?>index.php/pagina/modPage" method="post" enctype="multipart/form-data" onsubmit="return validarPasswd()">
                 <div class="row">
                   <div class="col-md-5 pr-md-1" style="">
                     <div class="form-group">
@@ -36,9 +55,12 @@
                   </div>
                   <div class="col-md-4 pl-md-1 ml-auto mr-auto" style="">
                     <div class="form-group">
-                      <label><b>Nombre:</b></label><br>
-                      <input type="text" name="nombre" class="form-control" value="<?php echo $page->nombre; ?>" required>
+                      <label><b>Nombre (sin espacios):</b></label><br>
+                      <input type="text" name="nombre" class="form-control" id="pwd1" value="<?php echo $page->nombre; ?>" required>
                       <input type="hidden" name="id" value="<?php echo $page->id; ?>">
+
+                        <?php echo $this->session->flashdata('pala'); ?>
+                      
                     </div>
                   </div>
                 </div>

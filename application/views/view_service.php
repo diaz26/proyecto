@@ -3,6 +3,25 @@
 <!-- Mirrored from design-graphma.com/demo/sedmy/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Mar 2019 04:47:05 GMT -->
 <head>
 </head>
+<script type="text/javascript">
+  function validarPasswd(){
+    var p1 = document.getElementById("pwd1").value;
+    var espacios = false;
+    var cont = 0;
+
+    while (!espacios && (cont < p1.length)) {
+      if (p1.charAt(cont) == " ")
+      espacios = true;
+      cont++;
+    }
+
+    if (espacios) {
+      alert ("El nombre de la página no puede contener espacios en blanco");
+      return false;
+    }
+  }
+
+</script>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
   <section id="home" class="hero">
     <div class="slide-home">
@@ -19,7 +38,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-12 col-sm-12" style="background-color: #F7F7F7" >
-                <form class="" action="<?= base_url(); ?>index.php/service/register" method="post" enctype="multipart/form-data">
+                <form class="" action="<?= base_url(); ?>index.php/service/register" method="post" enctype="multipart/form-data" onsubmit="return validarPasswd()">
                   <center><h5>Registro</h5></center>
                   <div class="row">
                     <div class="col-sm-6">
@@ -79,8 +98,11 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nombre de la Página (Sin espacios)*</label>
-                        <input type="text" name="page" class="form-control" required>
+                        <input type="text" name="page" class="form-control" id="pwd1" required>
                       </div><!-- End .form-grousp -->
+                      <div class="input-group">
+                        <?php echo $this->session->flashdata('pala'); ?>
+                      </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">

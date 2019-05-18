@@ -45,10 +45,11 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <img src="<?= base_url().$row->Imagen;?>" class="rounded mx-auto d-block" alt="...">
-                              <p><?php $row->Descripcion; ?></p>
-                              <p><?php $row->Marca; ?></p>
-                              <p><?php $row->categoria; ?></p>
+                              <center><img src="<?= base_url().$row->Imagen;?>" class="" alt="..."></center>
+                              <p style="font-size: 13px; margin-bottom: 0px; margin-top: 0px"><b>Descripcion:</b> <?= " ".$row->Descripcion; ?></p>
+                              <p style="font-size: 13px; margin-bottom: 0px; margin-top: 0px"><b>Marca:</b> <?= " ".$row->Marca; ?></p>
+                              <p style="font-size: 13px; margin-bottom: 0px; margin-top: 0px"><b>categoria:</b> <?= " ".$row->categoria; ?></p>
+                              <p style="font-size: 13px; margin-bottom: 0px; margin-top: 0px"><b>Precio:</b> <?= " ".$row->Precio; ?></p>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

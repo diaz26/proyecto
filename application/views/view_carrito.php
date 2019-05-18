@@ -132,9 +132,11 @@
                         </div><!-- End .col-sm-4 -->
                       </div><!-- End .row -->
                       <input type="hidden"  name="valorpago" class="form-control" value="<?php echo $Subtotalcar; ?>">
-
                       <?php
+                      $cant_pro=0;
+                      if(isset($_SESSION['carrito'])){
                       $cant_pro=count($_SESSION['carrito']);
+                    }
                       ?>
                       <input type="hidden" name="cant_pro" class="form-control" value="<?php echo $cant_pro; ?>">
                       <input type="hidden" name="id_page" class="form-control" value="<?php echo $page->id; ?>">

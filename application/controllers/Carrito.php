@@ -151,6 +151,10 @@ public function generapedido(){
       $paypal =	array( "cuenta_paypal" =>$cuenta_paypal);
       $pago= $pedido+$paypal+$data_pedido;
       $this->load->view('view_temp_paypal', $pago);
+    }else {
+      $pagee=$this->input->post('page');
+      $this->session->set_flashdata('reco', '<div class="alert alert-danger text-center">no pasas</div>');
+      redirect(base_url()."index.php/carrito/carga_carrito/$pagee");
     }
   }else{
     $pagee=$this->input->post('page');

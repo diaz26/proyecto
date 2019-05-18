@@ -8,6 +8,7 @@ class Pagina extends CI_Controller {
 		$this->load->model('model_header');
 		$this->load->model('model_informacion');
 		$this->load->model('model_clientes');
+		$this->load->model('model_login');
 	}
 
 	public function index()
@@ -29,46 +30,52 @@ class Pagina extends CI_Controller {
 
 	public function modPage(){
 		if($this->session->userdata('logged_in')){
-			if ($this->session->userdata('ROL')=='Cliente') {
-        $urldeimagen							="/images/";
-        $config['upload_path'] 		= ".".$urldeimagen;
-        $file_name 								= md5(time()."-".rand(1,99));
-        $config['allowed_types'] 	= "gif|jpg|jpeg|png";
-        $config['file_name']      = $file_name;
+			if ($this->session->userdata('ROL')=='Cliente'){
+				$nombre=$this->model_login->verificaPage($this->input->post('nombre'));
+				if ($nombre->cantidad==0) {
+					$urldeimagen							="/images/";
+					$config['upload_path'] 		= ".".$urldeimagen;
+					$file_name 								= md5(time()."-".rand(1,99));
+					$config['allowed_types'] 	= "gif|jpg|jpeg|png";
+					$config['file_name']      = $file_name;
 
-        $this->load->library('upload', $config);
-				$url_yt="";
-				if (!empty($_POST['yt'])) {
-					$url_con=  $this->input->post('yt');
-	        $cod_yt = substr(strrchr($url_con, "/"), 1 );
-	        $base_yt= 'https://www.youtube.com/embed/';
-	        $url_yt = $base_yt.$cod_yt;
+					$this->load->library('upload', $config);
+					$url_yt="";
+					if (!empty($_POST['yt'])) {
+						$url_con=  $this->input->post('yt');
+						$cod_yt = substr(strrchr($url_con, "/"), 1 );
+						$base_yt= 'https://www.youtube.com/embed/';
+						$url_yt = $base_yt.$cod_yt;
+					}
+
+					if ($this->upload->do_upload('logo')){
+						$dataCargada = $this->upload->data();
+						$datos=array(
+							'nombre'=>$this->input->post('nombre'),
+							'descripcion'=>$this->input->post('descripcion'),
+							'nav_bg'=>$this->input->post('nav_bg'),
+							'nav_color'=>$this->input->post('nav_color'),
+							'body_bg'=>$this->input->post('body_bg'),
+							'yt'=>$url_yt,
+							'logo'=> $urldeimagen.$dataCargada['file_name']
+						);
+					}else {
+						$datos=array(
+							'nombre'=>$this->input->post('nombre'),
+							'descripcion'=>$this->input->post('descripcion'),
+							'nav_bg'=>$this->input->post('nav_bg'),
+							'nav_color'=>$this->input->post('nav_color'),
+							'body_bg'=>$this->input->post('body_bg'),
+							'yt'=>$url_yt,
+						);
+					}
+					$id=$this->input->post('id');
+					$this->model_informacion->actPage($datos,$id);
+					redirect("pagina",'refresh');
+				}else {
+					$this->session->set_flashdata('pala','<div class="alert alert-danger text-center">Nombre no disponible</div>');
+					redirect("pagina",'refresh');
 				}
-
-        if ($this->upload->do_upload('logo')){
-          $dataCargada = $this->upload->data();
-          $datos=array(
-            'nombre'=>$this->input->post('nombre'),
-            'descripcion'=>$this->input->post('descripcion'),
-						'nav_bg'=>$this->input->post('nav_bg'),
-            'nav_color'=>$this->input->post('nav_color'),
-						'body_bg'=>$this->input->post('body_bg'),
-            'yt'=>$url_yt,
-            'logo'=> $urldeimagen.$dataCargada['file_name']
-          );
-        }else {
-          $datos=array(
-						'nombre'=>$this->input->post('nombre'),
-            'descripcion'=>$this->input->post('descripcion'),
-						'nav_bg'=>$this->input->post('nav_bg'),
-            'nav_color'=>$this->input->post('nav_color'),
-						'body_bg'=>$this->input->post('body_bg'),
-            'yt'=>$url_yt,
-          );
-        }
-        $id=$this->input->post('id');
-        $this->model_informacion->actPage($datos,$id);
-        redirect("pagina",'refresh');
 			}else {
 				$this->load->view('error_page');
 			}

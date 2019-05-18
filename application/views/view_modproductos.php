@@ -2,6 +2,25 @@
 <html lang="en">
 <head>
 </head>
+<script type="text/javascript">
+  function validarPasswd(){
+    var p1 = document.getElementById("lala").value;
+    var espacios = false;
+    var cont = 0;
+
+    while (!espacios && (cont < p1.length)) {
+      if (p1.charAt(cont) == " ")
+      espacios = true;
+      cont++;
+    }
+
+    if (espacios) {
+      alert ("las categorias no pueden contener espacios en blanco");
+      return false;
+    }
+  }
+
+</script>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
   <section id="home" class="hero">
     <div class="slide-home">
@@ -35,7 +54,7 @@
                   <div class="col-md-3 pl-md-1">
                     <div class="form-group">
                       <label><b>Categoria</b></label><br>
-                      <input type="text" class="form-control" name="categoria" value="<?php  echo $producto->categoria; ?>" required>
+                      <input type="text" class="form-control" name="categoria" id="lala" value="<?php  echo $producto->categoria; ?>" required>
                     </div>
                   </div>
                 </div>

@@ -24,6 +24,13 @@ class Model_login extends CI_Model {
     return $query->row();
 	}
 
+  public function verificaPage($page)
+	{
+		$sql="SELECT count(*) cantidad from baseo_ecommerce where nombre='$page'";
+    $query=$this->db->query($sql);
+    return $query->row();
+	}
+
   public function registrar($newUser){
     $this->db->insert('baseo_usuarios',$newUser);
     return $this->db->insert_id();

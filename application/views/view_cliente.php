@@ -19,7 +19,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="alert alert-primary" role="alert">
-                      <center>Este es el link de tu página<br><a href="<?= base_url()."index.php/welcome/to/".$page->nombre; ?>"><?php echo base_url()."index.php/welcome/to/".$page->nombre; ?></a></center>
+                      <center>Este es el link de tu página<br><a target="_blank" href="<?= base_url()."index.php/welcome/to/".$page->nombre; ?>"><?php echo base_url()."index.php/welcome/to/".$page->nombre; ?></a></center>
                     </div>
                   </div>
                 </div>

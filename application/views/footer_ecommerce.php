@@ -12,25 +12,8 @@
               <div class="row">
                 <div class="col-lg-4 col-md-4 ml-auto mr-auto">
                   <div class="logo-footer">
-                    <a class="navbar-brand" href="<?= base_url(); ?>"> <img src="<?= base_url().$page->logo; ?>" alt=""><span><?= $page->nombre; ?></span></a>
+                    <a class="navbar-brand" href="<?= base_url(); ?>index.php/welcome/to/<?= $page->nombre; ?>"> <img src="<?= base_url().$page->logo; ?>" alt=""><span><?= $page->nombre; ?></span></a>
                   </div>
-                  <ul class="list-social list-inline">
-                    <li>
-                      <a href="#">
-                        <i class="social_facebook "></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="social_twitter "></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="social_googleplus "></i>
-                      </a>
-                    </li>
-                  </ul>
                 </div>
                 <div class="col-lg-4 col-md-4 ml-auto mr-auto">
                   <h5>Contact Info</h5>

@@ -23,41 +23,49 @@ class Service extends CI_Controller {
   public function register(){
     if (isset($_POST['email'])) {
       $result=$this->model_login->verificaCorreo($this->input->post('email'));
+
       if ($result->cantidad==0) {
-        $registro=array(
-          'email'=>$this->input->post('email'),
-          'pass'=>$this->input->post('pass'),
-          'nombres'=>$this->input->post('nombres'),
-          'cc'=>$this->input->post('cc'),
-          'ciudad'=>$this->input->post('ciudad'),
-          'celular'=>$this->input->post('celular'),
-          'paypal' =>$this->input->post('paypal'),
-          'direccion'=>$this->input->post('direccion'),
-          'fecha_registro'=>date("Y-m-d H:i:s"),
-          'rol'=>'Cliente',
-          'cod_user'=>$this->genera_cod_user(),
-        );
-        $id=$this->model_login->registrar($registro);
+        $nombre=$this->model_login->verificaPage($this->input->post('page'));
+        if ($nombre->cantidad==0) {
+          $registro=array(
+            'email'=>$this->input->post('email'),
+            'pass'=>$this->input->post('pass'),
+            'nombres'=>$this->input->post('nombres'),
+            'cc'=>$this->input->post('cc'),
+            'ciudad'=>$this->input->post('ciudad'),
+            'celular'=>$this->input->post('celular'),
+            'paypal' =>$this->input->post('paypal'),
+            'direccion'=>$this->input->post('direccion'),
+            'fecha_registro'=>date("Y-m-d H:i:s"),
+            'rol'=>'Cliente',
+            'cod_user'=>$this->genera_cod_user(),
+          );
+          $id=$this->model_login->registrar($registro);
 
-        $newpage = array(
-          'nombre' =>$this->input->post('page'),
-          'logo' =>'images/defecto.jpg',
-          'nav_bg'=>'#D9D7D7',
-          'nav_color'=>'#000000',
-          'body_bg'=>'#E7E7E7',
-          'id_usuario'=>$id,
-        );
+          $newpage = array(
+            'nombre' =>$this->input->post('page'),
+            'logo' =>'images/defecto.jpg',
+            'nav_bg'=>'#D9D7D7',
+            'nav_color'=>'#000000',
+            'body_bg'=>'#E7E7E7',
+            'id_usuario'=>$id,
+          );
 
-        $this->model_login->newPage($newpage);
-        $session=array(
-          'ID'=>$id,
-          'USUARIO'=>$this->input->post('correo'),
-          'PASSWORD'=>$this->input->post('password'),
-          'ROL'=>'Cliente',
-          'logged_in'=> true
-        );
-        $this->session->set_userdata($session);
-        redirect("Cliente",'refresh');
+          $this->model_login->newPage($newpage);
+          $session=array(
+            'ID'=>$id,
+            'USUARIO'=>$this->input->post('correo'),
+            'PASSWORD'=>$this->input->post('password'),
+            'ROL'=>'Cliente',
+            'logged_in'=> true
+          );
+          $this->session->set_userdata($session);
+          redirect("Cliente",'refresh');
+        }else {
+          $this->session->set_flashdata('pala','<div class="alert alert-danger text-center">Nombre no disponible</div>');
+          redirect("service");
+        }
+
       }else {
         $this->session->set_flashdata('palo','<div class="alert alert-danger text-center">Correo Existente</div>');
         redirect("service");
