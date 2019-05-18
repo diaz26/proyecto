@@ -44,21 +44,52 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <center><h3>Regístrate</h3></center>
+                        <h3>Regístrate</h3>
+                        <p><?= $head->ban_2_text; ?></p>
                         <div class="page-links">
                             <a href="<?= base_url(); ?>">Login</a><a href="<?= base_url(); ?>/index.php/service" class="active">Register</a>
                         </div>
+
                         <form action="<?= base_url(); ?>index.php/service/register" method="post" enctype="multipart/form-data" onsubmit="return validarPasswd()">
-                            <input class="form-control" type="text" name="nombres" placeholder="Nombre completo" required>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
-                            <input class="form-control" type="password" name="pass" placeholder="Contraseña" required>
-                            <input class="form-control" type="number" name="cc" placeholder="Identificación" required>
-                            <input class="form-control" type="text" name="ciudad" placeholder="Ciudad" required>
-                            <input class="form-control" type="number" name="celular" placeholder="Telefono" required>
-                            <input class="form-control" type="text" name="direccion" placeholder="Dirección" required>
-                            <input class="form-control" type="text" name="page" id="pwd1" placeholder="Nombre de la página" required>
-                            <?php echo $this->session->flashdata('pala'); ?>
-                            <input class="form-control" type="email" name="paypal" placeholder="Cuenta PayPal" required>
+                          <div class="row">
+                            <div class="col-md-7">
+                              <input class="form-control" type="text" name="nombres" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="col-md-5">
+                              <input class="form-control" type="number" name="cc" placeholder="Identificación" required>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-7">
+                              <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                              <?php echo $this->session->flashdata('palo'); ?>
+                            </div>
+                            <div class="col-md-5">
+                              <input class="form-control" type="password" name="pass" placeholder="Contraseña" required>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <input class="form-control" type="text" name="ciudad" placeholder="Ciudad" required>
+                            </div>
+                            <div class="col-md-6">
+                              <input class="form-control" type="number" name="celular" placeholder="Telefono" required>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <input class="form-control" type="text" name="direccion" placeholder="Dirección" required>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-5">
+                              <input class="form-control" type="text" name="page" id="pwd1" placeholder="Nombre de la página" required>
+                              <?php echo $this->session->flashdata('pala'); ?>
+                            </div>
+                            <div class="col-md-7">
+                              <input class="form-control" type="email" name="paypal" placeholder="Cuenta PayPal" required>
+                            </div>
+                          </div>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>

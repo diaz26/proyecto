@@ -27,18 +27,15 @@
           <div class="form-items">
             <h3><?= $head->ban_1_title; ?></h3>
             <p><?= $head->ban_1_text; ?></p>
-            <p><?= $head->ban_2_text; ?></p>
             <div class="page-links">
               <a href="<?= base_url(); ?>" class="active">Login</a><a href="<?= base_url(); ?>/index.php/service">Register</a>
             </div>
             <form action="<?= base_url(); ?>index.php/login/validar" method="post">
-              <input class="form-control" type="text" name="user" placeholder="E-mail" required>
-              <input class="form-control" type="password" name="pass" placeholder="Contraseña" required>
-              <center>
+              <center><input class="form-control" style="width: 80%" type="text" name="user" placeholder="E-mail" required>
+              <input class="form-control" style="width: 80%" type="password" name="pass" placeholder="Contraseña" required>
                 <?php echo $this->session->flashdata('msg'); ?>
-            </center>
               <div class="form-button">
-                <button id="submit" type="submit" class="ibtn">Login</button> <a href="<?= base_url(); ?>index.php/login/recuperar">Forget password?</a>
+                <button id="submit" type="submit" class="ibtn">Login</button></center> <!--a href="<?= base_url(); ?>index.php/login/recuperar">Forget password?</a-->
               </div>
             </form>
           </div>

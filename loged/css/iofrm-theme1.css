@@ -113,13 +113,13 @@
 }
 
 .form-content .form-items {
-    max-width: 540px;
+    max-width: 400px;
     text-align: left;
 }
 
 .form-content h3 {
     color: #fff;
-    text-align: left;
+    text-align: center;
 }
 
 .form-content p {
