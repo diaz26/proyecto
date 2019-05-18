@@ -31,14 +31,15 @@ CREATE TABLE `baseo_ecommerce` (
   `id_usuario` int(11) DEFAULT NULL,
   `yt` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_ecommerce` */
 
 insert  into `baseo_ecommerce`(`id`,`logo`,`nombre`,`descripcion`,`nav_bg`,`nav_color`,`body_bg`,`id_usuario`,`yt`) values 
-(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#0033FE','#FFFFFF','#E7E7E7',2,''),
+(1,'/images/6902e76ec70215204edfba507eef52b4.jpg','CincoMenos','Distribuciones a todo el país','#4D61DE','#FFFFFF','#E7E7E7',2,''),
 (2,'images/defecto.jpg','YoGoogle',NULL,'#D9D7D7','#000000','#E7E7E7',4,NULL),
-(3,'images/defecto.jpg','Avvv',NULL,'#D9D7D7','#000000','#E7E7E7',5,NULL);
+(3,'images/defecto.jpg','Avvv',NULL,'#D9D7D7','#000000','#E7E7E7',5,NULL),
+(4,'images/defecto.jpg','Probando',NULL,'#D9D7D7','#000000','#E7E7E7',6,NULL);
 
 /*Table structure for table `baseo_oficial` */
 
@@ -75,7 +76,7 @@ CREATE TABLE `baseo_oficial` (
 /*Data for the table `baseo_oficial` */
 
 insert  into `baseo_oficial`(`id`,`correo_contact`,`cel_contact`,`logo`,`nombre`,`abreviacion`,`nav_bg`,`op1`,`op2`,`op3`,`op4`,`color`,`fuente`,`size`,`search`,`ban_1_title`,`ban_1_text`,`ban_1_url_vid`,`ban_1_url_img`,`ban_2_title`,`ban_2_text`,`ban_2_url_img`,`sec_text`,`pr900`) values 
-(1,'soporte_oficial_baseo@outlook.com',3165337090,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#40FA5A','Inicio','Products','Servicio','Ingresar','#000000','Lato, sans-serif',16,'buscar...','Welcome to BASEO','Baseo es una plataforma que ofrece el servicio de ventas en el que puede administrar sus productos y vender en línea.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','BASEO','Se trata de una plataforma donde puedes configurar tus productos así como algunos estilos de tu plantilla ecommerce donde tus clientes podran hacer pedido de tus productos en linea.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',35);
+(1,'soporte_oficial_baseo@outlook.com',3165337090,'/images/32b313c553b32ca34c9887d5203ba675.png','BASEO - Buy and Sell Easy Online','BASEO','#B9B9B9','Inicio','Products','Servicio','Ingresar','#000000','Lato, sans-serif',16,NULL,'Bienvenido a BASEO','Baseo (Buy And Sell Easy Online) es una plataforma que ofrece un servicio de gestión y \r\ncomercialización de productos en línea dónde se asignará una página específica en la cúal se exhiben solo los productos de tu propiedad.','https://www.youtube.com/embed/7e90gBu4pas','/images/05f6a3d9157e751f7f6911274e047a02.png','BASEO','¡IMPORTANTE! El e-mail debe ser real, en caso de perder la contraseña solo por este medio la podrás recuperar. El nombre de página no debe tener espacios.','/images/ca60d973de87aa312a59f8b477ccc10b.png','¡BUSCA TU PRODUCTO!',45);
 
 /*Table structure for table `baseo_pagos` */
 
@@ -90,18 +91,13 @@ CREATE TABLE `baseo_pagos` (
   `id_usuario` int(11) DEFAULT NULL,
   `estado_pedido` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_pagos` */
 
 insert  into `baseo_pagos`(`id`,`cod_pedido`,`monto`,`fecha_pago`,`fecha_pedido`,`id_usuario`,`estado_pedido`) values 
-(1,'COD_PEDdnOHoC22',50,'2019-05-14 16:23:09','2019-05-14 16:22:44',2,2),
-(2,'COD_PEDGTWeLU28',30,'2019-05-14 17:41:52','2019-05-14 17:39:03',2,1),
-(3,'COD_PEDLd29Qc30',50,'2019-05-14 20:05:56','2019-05-14 20:03:45',2,2),
-(4,'COD_PED1NkbtX31',42,'2019-05-15 12:32:58','2019-05-15 12:29:25',2,2),
-(5,'COD_PEDTuCz6l32',72,'2019-05-15 12:59:44','2019-05-15 12:34:27',2,1),
-(6,'COD_PEDGaLuI533',20,'2019-05-15 13:01:05','2019-05-15 13:00:19',2,1),
-(7,'COD_PEDV93ML834',132,'2019-05-15 13:07:37','2019-05-15 13:01:42',2,1);
+(9,'COD_PEDYVpM2X42',8,'2019-05-15 18:02:58','2019-05-15 18:02:06',2,2),
+(10,'COD_PEDYJO8F743',8,'2019-05-15 20:11:20','2019-05-15 20:10:14',2,2);
 
 /*Table structure for table `baseo_pedidos` */
 
@@ -121,17 +117,13 @@ CREATE TABLE `baseo_pedidos` (
   `fecha_pedido` datetime DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_pedidos` */
 
 insert  into `baseo_pedidos`(`id`,`correo`,`nombre`,`celular`,`cedula`,`direccion`,`departamento`,`ciudad`,`monto`,`cod_pedido`,`fecha_pedido`,`id_usuario`) values 
-(22,'support@cathefitness.com','Novelly',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',30,'COD_PEDGTWeLU28','2019-05-14 17:39:03',2),
-(23,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',50,'COD_PEDLd29Qc30','2019-05-14 20:03:45',2),
-(24,'support@cathefitness.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',42,'COD_PED1NkbtX31','2019-05-15 12:29:25',2),
-(25,'support@cathefitness.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',72,'COD_PEDTuCz6l32','2019-05-15 12:34:27',2),
-(26,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',20,'COD_PEDGaLuI533','2019-05-15 13:00:19',2),
-(27,'support@cathefitness.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',132,'COD_PEDV93ML834','2019-05-15 13:01:42',2);
+(29,'jeffreydiazaya@outlook.com','Jeff Diaz',3134863691,1003810787,'Calle 71 A # 1 b 33','Huila','Neiva',8,'COD_PEDYVpM2X42','2019-05-15 18:02:06',2),
+(30,'jeff@gmail.com','Jeff Diaz',3134863691,1003810783,'Calle 71 A # 1 b 33','Huila','Neiva',8,'COD_PEDYJO8F743','2019-05-15 20:10:14',2);
 
 /*Table structure for table `baseo_productos` */
 
@@ -148,15 +140,17 @@ CREATE TABLE `baseo_productos` (
   `categoria` varchar(50) DEFAULT NULL,
   `cod_producto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_productos` */
 
 insert  into `baseo_productos`(`id`,`Nombre`,`Marca`,`Descripcion`,`Imagen`,`Precio`,`id_dueno`,`categoria`,`cod_producto`) values 
-(8,'jeff','hmano','un chico guapo','/images/fd3267dfb7cd8de24826dcf6cff509d8.jpg',65465456.00,3,NULL,'PRO1'),
-(12,'xtz 250','Yamaha','Moto todoterreno','/images/4dcce85b39811df37c6d643a60150edb.jpg',30.00,2,'Motocicleta','COD_PRODwDVOP08'),
-(13,'biwis','yamaha','Moto para ciudad','/images/ea328fdafa8d613df6b9f60c70fc2b89.jpg',20.00,2,'Motocicleta','COD_PRODXbvTre9'),
-(16,'aa','aa','2dff','/images/d1c143dfae15e4dbf9933015e4ec72e3.jpg',11.00,2,'22','COD_PRODySn3hF29');
+(17,'Arroz','Diana','Arroz Diana 500 gr 75% grano entero','/images/2510c02fd748ca6d27206056e1ccd2a9.jpg',0.50,2,'Grano','COD_PRODi3Mbkj36'),
+(18,'Lecha entera','Colanta','leche entera colanta 1000 ml','/images/9e670914cfdfdbe21065545769f14f12.jpg',1.00,2,'Lacteos','COD_PRODPHB3AE37'),
+(19,'Concentrado Mirringo','Ringo','Concentrado para gatos mirringo 1 kg','/images/48d15b94b1f1a6237fd8d7fe615ebada.jpg',1.00,2,'Concentrado','COD_PRODxOgdoP38'),
+(20,'Leche deslactosada','Colanta','Leche deslactosada colanta 1000 ml','/images/caa15289357a48e32007ee909821b70a.jpg',1.00,2,'Lacteos','COD_PRODSez58R39'),
+(21,'Mortadela','Zenu','Mortadela ahumada zenú 400 gr','/images/f94c4b341de49744971f1e816282224b.jpg',2.00,2,'CarnesFrias','COD_PRODHcsr7940'),
+(22,'Ringo Premium','Ringo','Concentrado para perros ringo premium 2 kg','/images/b0e370a16f361015666f05149bbaf62f.jpg',0.60,2,'Concentrado','COD_PRODH0zlu641');
 
 /*Table structure for table `baseo_service` */
 
@@ -197,7 +191,7 @@ CREATE TABLE `baseo_usuarios` (
   `celular` double DEFAULT NULL,
   `paypal` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `baseo_usuarios` */
 
@@ -206,7 +200,8 @@ insert  into `baseo_usuarios`(`id`,`pass`,`rol`,`cod_user`,`nombres`,`cc`,`direc
 (2,'jda','Cliente','JJJJ','Jeffrey',1003810783,'Calle 71 A # 1 B 33','jeffreydiazaya@outlook.com','Neiva','2019-04-14 15:58:34',3165337090,'leo_empresas@gmail.com'),
 (3,'123','Cliente','AAAAA','Pipe',123423424,NULL,'pipe@gmail.com','Neiva','2019-04-30 10:53:08',NULL,'jeffreydiazaya@outlook.com'),
 (4,'aaa','Cliente',NULL,'Novelly',122211,'Calle 71 A','jeff@gmail.com','Neiva','2019-05-14 00:24:09',3134863691,'jeffreydiaz@outlook.com'),
-(5,'aaaa','Cliente','COD_USERIy0fSM24','Novelly',122222,'Calle 71 A # 1 b 33','cf@gmail.com','Neiva','2019-05-14 16:54:55',3134863691,'jeffreydiaz@outlook.com');
+(5,'aaaa','Cliente','COD_USERIy0fSM24','Novelly',122222,'Calle 71 A # 1 b 33','cf@gmail.com','Neiva','2019-05-14 16:54:55',3134863691,'jeffreydiaz@outlook.com'),
+(6,'eeeee','Cliente','COD_USERBY4Lvd44','Novelly',111111,'Calle 71 A # 1 b 33','carlosp@gmailcom','Neiva','2019-05-18 18:12:45',3134863691,'jeffreydiaz@outlook.com');
 
 /*Table structure for table `productos_pedidos` */
 
@@ -218,45 +213,18 @@ CREATE TABLE `productos_pedidos` (
   `cod_pedido` varchar(100) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 /*Data for the table `productos_pedidos` */
 
 insert  into `productos_pedidos`(`id`,`id_producto`,`cod_pedido`,`cantidad`) values 
-(1,0,'COD_PED6VZczE13',1),
-(2,0,'COD_PED6VZczE13',3),
-(3,NULL,'COD_PEDKwrR2U14',2),
-(4,NULL,'COD_PEDKwrR2U14',5),
-(5,12,'COD_PEDtbBkIQ15',3),
-(6,13,'COD_PEDtbBkIQ15',1),
-(7,12,'COD_PEDYrx1TE16',3),
-(8,13,'COD_PEDYrx1TE16',1),
-(9,12,'COD_PED2e3TaE17',1),
-(10,13,'COD_PED2e3TaE17',1),
-(11,12,'COD_PEDAjou1L18',1),
-(12,13,'COD_PEDAjou1L18',1),
-(13,12,'COD_PEDna6v5H19',1),
-(14,13,'COD_PEDna6v5H19',1),
-(15,12,'COD_PEDUxtIfB20',2),
-(16,13,'COD_PEDUxtIfB20',1),
-(17,12,'COD_PEDSildR621',1),
-(18,13,'COD_PEDSildR621',1),
-(19,12,'COD_PEDdnOHoC22',1),
-(20,13,'COD_PEDdnOHoC22',1),
-(21,12,'COD_PEDsM8tYQ26',1),
-(22,12,'COD_PEDJ4aP0727',1),
-(23,12,'COD_PEDGTWeLU28',1),
-(24,13,'COD_PEDLd29Qc30',1),
-(25,12,'COD_PEDLd29Qc30',1),
-(26,16,'COD_PED1NkbtX31',2),
-(27,13,'COD_PED1NkbtX31',1),
-(28,16,'COD_PEDTuCz6l32',2),
-(29,13,'COD_PEDTuCz6l32',1),
-(30,12,'COD_PEDTuCz6l32',1),
-(31,13,'COD_PEDGaLuI533',1),
-(32,16,'COD_PEDV93ML834',2),
-(33,13,'COD_PEDV93ML834',1),
-(34,12,'COD_PEDV93ML834',3);
+(36,17,'COD_PEDYVpM2X42',2),
+(37,18,'COD_PEDYVpM2X42',3),
+(38,21,'COD_PEDYVpM2X42',1),
+(39,20,'COD_PEDYVpM2X42',2),
+(40,17,'COD_PEDYJO8F743',2),
+(41,18,'COD_PEDYJO8F743',3),
+(42,21,'COD_PEDYJO8F743',2);
 
 /*Table structure for table `prueba_pago` */
 
@@ -270,12 +238,9 @@ CREATE TABLE `prueba_pago` (
   `fecha` datetime DEFAULT NULL,
   `value` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `prueba_pago` */
-
-insert  into `prueba_pago`(`id`,`estado`,`cod_pedido`,`idusuario`,`fecha`,`value`) values 
-(1,NULL,'COD_PEDUxtIfB20',2,'2019-05-14 16:07:32',80);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
