@@ -29,6 +29,10 @@ class Login extends CI_Controller {
     }
   }
 
+  public function recuperar(){
+    $result['head']=$this->model_header->consultOficial(1);
+    $this->load->view('view_recuperar',$result);
+  }
 
   public function validar(){
     if (isset($_POST['user'])) {
@@ -55,7 +59,7 @@ class Login extends CI_Controller {
           }
       }else {
         $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Usuario/Contraseña Invalido</div>');
-  			redirect("".base_url()."index.php/login");
+  			redirect("".base_url()."index.php/home");
       }
     }else {
       $this->load->view('error_page');

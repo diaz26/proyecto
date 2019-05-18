@@ -10,9 +10,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$header['head']=$this->model_header->consultOficial(1);
-		$this->load->view('header',$header);
-		$this->load->view('view_home');
-		$this->load->view('footer');
+		$result['head']=$this->model_header->consultOficial(1);
+		//$this->load->view('header',$header);
+		$this->load->view('view_principal_log',$result);
+		//$this->load->view('footer');
 	}
 }

@@ -32,7 +32,8 @@ class Pagina extends CI_Controller {
 		if($this->session->userdata('logged_in')){
 			if ($this->session->userdata('ROL')=='Cliente'){
 				$nombre=$this->model_login->verificaPage($this->input->post('nombre'));
-				if ($nombre->cantidad==0) {
+				$page=$this->model_informacion->consultPageX($this->session->userdata('ID'));
+				if (($nombre->cantidad==0) or ($page==$this->input->post('nombre'))) {
 					$urldeimagen							="/images/";
 					$config['upload_path'] 		= ".".$urldeimagen;
 					$file_name 								= md5(time()."-".rand(1,99));

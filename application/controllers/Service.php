@@ -12,11 +12,11 @@ class Service extends CI_Controller {
 
   public function index()
   {
-    $header['head']=$this->model_header->consultOficial(1);
+    $result['head']=$this->model_header->consultOficial(1);
     $result['service']=$this->model_service->consultService(1);
-    $this->load->view('header',$header);
-    $this->load->view('view_service',$result);
-    $this->load->view('footer');
+    //$this->load->view('header',$header);
+    $this->load->view('view_register',$result);
+    //$this->load->view('footer');
   }
 
 
